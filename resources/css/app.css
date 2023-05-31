@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* datatable */
+.data-table td{
+    background-color: rgb(31 41 55);
+    color:rgb(156 163 175);
+    table-layout: auto;
+    white-space: nowrap;
+}
+#DataTables_Table_0 tbody tr:hover > td {
+    background-color: rgb(75 85 99);
+}
+.table .data-table {
+    margin-top: 50px;
+}
+.dataTables_filter{
+    margin-bottom: 20px;
+    margin-top: 30px;
+    
+}
+#DataTables_Table_0_filter{
+    color: rgb(156 163 175);
+    display: flex;
+    justify-content: right;
+    white-space: nowrap ;
+}
+#DataTables_Table_0_filter input {
+    background-color: rgb(55 65 81);
+    color: rgb(156 163 175);
+    border-color: gray;
+}
+#DataTables_Table_0_filter label {
+    border-color: gray;
+    display: flex;
+    justify-content: right;
+}
+@media (max-width: 376px) {
+
+    #DataTables_Table_0_filter{
+        width: 100%;
+    }
+    #DataTables_Table_0_filter input {
+        width: 100%;
+    }
+    #DataTables_Table_0_filter label {
+        width: 100%;
+    }
+}
+
+/* Floating Button */
+.btn-floating {
+    position: fixed;
+    right: 25px;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    border: 0;
+    z-index: 9999;
+    color: white;
+    transition: .2s;
+}
+.btn-floating:hover {
+    width: auto;
+    padding: 0 20px;
+    cursor: pointer;
+}
+.btn-floating span {
+    font-size: 16px;
+    margin-left: 5px;
+    transition: .2s;
+    line-height: 0px;
+    display: none;
+}
+.btn-floating:hover span {
+    display: inline-block;
+}
+.btn-floating.whatsapp {
+    bottom: 25px;
+    background-color: #34af23;
+    border: 2px solid #fff;
+}
+.btn-floating.whatsapp:hover {
+    background-color: #1f7a12;
+}
+
+/* Typewritter on 'Welcome' */
+.home {
+    display: flex;
+    height: 100vh;
+    color: #fff;
+    min-height: 500px;
+    font-family: "ubuntu", sans-serif;
+}
+.home .max-width {
+    margin: auto 0 auto 30px;
+}
+.home .home-content .text-1 {
+    font-size: 27px;
+}
+.home .home-content .text-2 {
+    font-size: 75px;
+    font-weight: 600;
+    margin: -18px 0px -25px 6px;
+}
+.home .home-content .text-3 {
+    font-size: 40px;
+    margin: 5px 0;
+}
+.home .home-content .text-3 span {
+    color: crimson;
+    font-weight: 500;
+}
+.home .home-content a {
+    display: inline-block;
+    background: crimson;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 15px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+}
+.home .home-content a:hover {
+    color: crimson;
+    background: none;
+}
+.home .home-content a.btn {
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+}
+
+@media (max-width:800px) {
+
+.home .home-content .text-1 {
+    font-size: 13.5px;
+    margin-bottom: 5px;
+}
+.home .home-content .text-2 {
+    font-size: 37.5px;
+    font-weight: 600;
+    /* margin: -18px 0px -25px 6px; */
+    margin-bottom:-15px;
+}
+.home .home-content .text-3 {
+    font-size: 20px;
+    margin: 5px 0;
+}
+.home .home-content .text-3 span {
+    color: crimson;
+    font-weight: 250;
+}
+.home .home-content a:hover {
+    color: crimson;
+    background: none;
+}
+.home .home-content a.btn {
+    width: 20px;
+    height: 30px;
+    line-height: 20px;
+}
+.home .home-content a {
+    display: inline-block;
+    background: crimson;
+    color: #fff;
+    font-size: 12.5px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 2px solid crimson;
+    transition: all 0.3s ease;
+}
+}
+
+@media (min-width:640px){
+    nav {
+        position: fixed;
+        width: 100%;
+        background: rgba(0, 0, 0, 0);
+        /* overflow: hidden; */
+        transition: 0.5s;
+    }
+    
+    nav.gray {
+        background-color: rgb(31, 41, 55);
+        
+    }
+    
+}
+
+@media (max-width:639px) {
+    nav {
+        position: fixed;
+        width: 100%;
+        background: rgb(31, 41, 55);
+        /* overflow: hidden; */
+        transition: 0.5s;
+    }
+    
+    nav.gray {
+        background-color: rgb(31, 41, 55);
+        
+    }
+}
+
