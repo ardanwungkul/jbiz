@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="mx-4 ">
+    <div class="mx-4 pt-3">
         <div class=" relative overflow-x-auto mt-4 rounded">
 
             <table class="data-table text-center stripe hover responsive text-sm ">

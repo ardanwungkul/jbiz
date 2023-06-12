@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- Typewriter --}}
-    <div class="col-span-1 ">
+    <div class="">
         <section class="home" id="home">
             <div class="max-width">
                 <div class="home-content">
@@ -90,25 +90,31 @@
 
     {{-- Page Important Website --}}
     <div class="container-fluid sm:h-screen">
-        <div class="grid grid-cols-2">
-            <div class="h-screen sm:mx-auto sm:flex sm:items-center md:p-20">
-                <img src="https://digipa.it/wp-content/uploads/2020/03/digital-marketing-illustration.png"
+        <div class="sm:grid sm:grid-cols-2">
+            <div class="sm:h-screen sm:mx-auto sm:flex sm:items-center px-14 lg:px-20 sm:px-10 mx-auto py-5 sm:py-0">
+                <img class="object-cover"
+                    src="https://digipa.it/wp-content/uploads/2020/03/digital-marketing-illustration.png"
                     alt="">
             </div>
-            <div class="h-screen sm:mx-auto sm:flex sm:items-center md:p-20">
+            <div class="sm:h-screen px-10 pb-10 md:pb-0 sm:mx-auto sm:flex sm:items-center md:px-20">
                 <ul class="list-disc text-white">
-                    <h5 class="text-3xl tracking-tighter mb-7 font-extrabold">Pentingnya menggunakan Website !!</h5>
-                    <li class="font-bold">Meningkatkan Kepercayaan Pelanggan (Branding)</li>
-                    <p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+                    <h5 class="sm:text-3xl text-lg tracking-tighter mb-7 font-extrabold">Pentingnya menggunakan Website
+                        !!</h5>
+                    <li class="sm:text-base text-sm font-bold">Meningkatkan Kepercayaan Pelanggan (Branding)</li>
+                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Consequatur,
                         tenetur?</p>
-                    <li class="font-bold">Sebagai Media Promosi</li>
-                    <p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+                    <li class="sm:text-base text-sm font-bold">Sebagai Media Promosi</li>
+                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Consequatur,
                         tenetur?</p>
-                    <li class="font-bold">Sarana Katalog Produk</li>
-                    <p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+                    <li class="sm:text-base text-sm font-bold">Sarana Katalog Produk</li>
+                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Consequatur,
                         tenetur?</p>
-                    <li class="font-bold">Meningkatkan Penjualan</li>
-                    <p class="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+                    <li class="sm:text-base text-sm font-bold">Meningkatkan Penjualan</li>
+                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Consequatur,
                         tenetur?</p>
                 </ul>
             </div>
@@ -122,11 +128,11 @@
                 class="text-red-500 font-extrabold"> Jasawebsite.biz </span> Untuk Pembuatan Website Sejak Tahun 2006
         </p>
 
-        <div class="container px-56 my-8">
-            <div class="grid grid-cols-3 gap-10 justify-center">
-                <div class="col-span-1 bg-white shadow-2xl rounded-lg px-2 py-4">
+        <div class="container lg:px-56 my-8">
+            <div class="grid sm:grid-cols-3 grid-cols-2 gap-10 justify-center">
+                <div class="sm:col-span-1 col-span-1 bg-white shadow-2xl rounded-lg px-2 py-4">
                     <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3"
+                        <img class="w-24 h-24 mb-3 object-cover "
                             src="https://cdn.iconscout.com/icon/free/png-256/evaluate-business-idea-innovation-concept-implementation-3-5356.png"
                             alt="Bonnie image" />
                         <h5
@@ -134,9 +140,9 @@
                             Konsep Desain & Marketing</h5>
                     </div>
                 </div>
-                <div class="col-span-1 bg-white rounded-lg shadow-2xl px-2 py-4">
+                <div class="sm:col-span-1 col-span-1 bg-white rounded-lg shadow-2xl px-2 py-4">
                     <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3 "
+                        <img class="w-24 h-24 mb-3 object-cover  "
                             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbeckertime.com%2Fwp-content%2Fthemes%2Fawesome-beckertime%2Fimages%2Ficon-after-sales.png&f=1&nofb=1&ipt=5bbf234409a81c3d40308082fc868540869af19c230414114354280f587a343b&ipo=images"
                             alt="Bonnie image" />
                         <h5
@@ -144,9 +150,9 @@
                             After Sales dan Jelas</h5>
                     </div>
                 </div>
-                <div class="col-span-1  bg-white rounded-lg shadow-2xl px-2 py-4">
+                <div class="sm:col-span-1 col-span-1 bg-white rounded-lg shadow-2xl px-2 py-4">
                     <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3  "
+                        <img class="w-24 h-24 mb-3 object-cover   "
                             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn1.iconfinder.com%2Fdata%2Ficons%2Fbusiness-startup-45%2F64%2F918-512.png&f=1&nofb=1&ipt=ecf6c52d2a9bf679ab297b89862284d4c5b3c361709fa8c17ba895af2e351952&ipo=images "
                             alt="Bonnie image" />
                         <h5
@@ -154,9 +160,9 @@
                             Terbaik</h5>
                     </div>
                 </div>
-                <div class="col-span-1  bg-white rounded-lg shadow-2xl px-2 py-4">
+                <div class="sm:col-span-1 col-span-1 bg-white rounded-lg shadow-2xl px-2 py-4">
                     <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3  "
+                        <img class="w-24 h-24 mb-3 object-cover   "
                             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fcommunication-406%2F32%2Fcom-26-512.png&f=1&nofb=1&ipt=a7b841ad2a9f9dc5d139e9210a6b75d30627c184287d05b9238b00cf5041c4a1&ipo=images"
                             alt="Bonnie image" />
                         <h5
@@ -164,9 +170,9 @@
                             Stand By</h5>
                     </div>
                 </div>
-                <div class="col-span-1  bg-white rounded-lg shadow-2xl px-2 py-4">
+                <div class="sm:col-span-1 col-span-1 bg-white rounded-lg shadow-2xl px-2 py-4">
                     <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3  "
+                        <img class="w-24 h-24 mb-3 object-cover   "
                             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_361429.png&f=1&nofb=1&ipt=4ead45706b020c69eacdbec911d916b4dad5fd467e028f91a2a478e0f50526bc&ipo=images"
                             alt="Bonnie image" />
                         <h5
@@ -174,9 +180,9 @@
                             Alamat Jelas </h5>
                     </div>
                 </div>
-                <div class="col-span-1  bg-white rounded-lg shadow-2xl px-2 py-4">
+                <div class="sm:col-span-1 col-span-1 bg-white rounded-lg shadow-2xl px-2 py-4">
                     <div class="flex flex-col items-center">
-                        <img class="w-24 h-24 mb-3  "
+                        <img class="w-24 h-24 mb-3 object-cover   "
                             src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_244045.png&f=1&nofb=1&ipt=feb85515cd70be32302609f2cddf870923729c40c1c064a5b2c4637c751cf78c&ipo=images"
                             alt="Bonnie image" />
                         <h5

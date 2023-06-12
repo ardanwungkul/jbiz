@@ -1,12 +1,11 @@
 <x-app-layout>
-    <div class="mx-4 ">
+    <div class="mx-4 pt-3">
         <a href="{{ route('domain.create') }}"
-            class=" w-full bg-gray-600 text-gray-300 p-3 rounded text-sm shadow-sm focus:outline-none hover:bg-indigo-700"
+            class=" w-full bg-gray-600 text-gray-300 p-3 rounded text-xs sm:text-sm shadow-sm focus:outline-none hover:bg-indigo-700"
             id="createNewProduct">Tambah Domain</a>
         <div class=" relative overflow-x-auto mt-4 rounded">
-
             <table class="data-table text-center stripe hover responsive text-sm ">
-                <thead class="bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <thead class="bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
                     <tr>
                         <th>No</th>
                         <th>Nama Domain</th>
@@ -17,7 +16,6 @@
                 </thead>
                 <tbody></tbody>
             </table>
-
         </div>
     </div>
 
@@ -53,7 +51,6 @@
                         data: 'id',
                         name: 'id'
                     },
-
                     {
                         data: 'nama_domain',
                         name: 'nama_domain',
@@ -62,7 +59,6 @@
                                 '</a>';
                         }
                     },
-
                     {
                         data: 'tanggal_expired',
                         name: 'tanggal_expired'

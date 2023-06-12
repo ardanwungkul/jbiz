@@ -15,8 +15,8 @@ class MemberController extends Controller
     public function index(User $user, Pelanggan $pelanggan, Request $request)
     {
         $auth = Auth::user()->id;
-        $pelanggans = Pelanggan::where('user_id', $auth)->get();
-        $domains = Domain::where('pelanggan_id', $pelanggans[0]->id)->get();
+        $pelanggans = Pelanggan::with('user')->where('user_id', $auth)->get();
+        $domains = count($pelanggans) > 0 ? Domain::where('pelanggan_id', $pelanggans[0]->id)->get() : collect([]);
         return view('master.member.member', compact('pelanggans', 'domains'));
     }
     public function create()
