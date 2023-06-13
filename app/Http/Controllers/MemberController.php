@@ -52,7 +52,7 @@ class MemberController extends Controller
         $pelanggan->user_id = $request->user_id;
         $pelanggan->save();
 
-        return redirect()->route('welcome')->with(['success' => 'Pelanggan berhasil ditambahkan']);
+        return redirect()->route('member')->with(['success' => 'Pelanggan berhasil ditambahkan']);
     }
     public function show(Domain $domain, Pelanggan $pelanggan)
     {

@@ -26,9 +26,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/portofolio', [PortofolioController::class, 'porto'])->name('portofolio');
-Route::get('/', [ImageController::class, 'index'])->name('welcome');
-Route::post('/store', [ImageController::class, 'store'])->name('store');
-Route::delete("delete", [ImageController::class, 'delete'])->name('delete');
+
+
 
 Route::get('/contact', function () {
     return view('contactForm');
@@ -64,16 +63,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/member', MemberController::class);
+    Route::get('/', [ImageController::class, 'index'])->name('welcome');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    // Route::resource('/domain', DomainController::class);
+    Route::resource('/domain', DomainController::class);
     Route::resource('/pelanggan', PelangganController::class);
     Route::resource('/nameserver', NameserverController::class);
     Route::resource('/user', UserController::class);
-    Route::get('admin', function () {
-        return 'admin page';
-    });
+    Route::post('/store', [ImageController::class, 'store'])->name('store');
+    Route::delete("delete", [ImageController::class, 'delete'])->name('delete');
 });
 
 
