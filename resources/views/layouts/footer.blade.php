@@ -1,17 +1,20 @@
-<footer class="pt-2 bg-gray-900">
+<footer class="sm:pt-2 pt-5 bg-gray-900">
 
     {{-- <hr class=" mx-auto" /> --}}
-    <div class="grid grid-cols-3 px-7">
-        <div class="col-span-1 py-4">
-            <h3 class="text-white text-center my-3 md:text-base text-sm">Location</h3>
+    <div class=" md:mx-7 w-full">
+        <img src="https://jasawebsite.biz/wp-content/uploads/2021/08/New-Project.png" width="180" alt="">
+    </div>
+    <div class="grid sm:grid-cols-3 grid-cols-2 px-7">
+        <div class="sm:col-span-1 col-span-2">
+            <h3 class="text-white sm:text-center my-3 md:text-base text-sm hidden sm:block">Location</h3>
             <iframe class="w-full md:h-28 h-20 rounded sm:rounded-none"
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15841.497984185282!2d107.6388771!3d-6.9650722!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e84cea7d187f%3A0x2ea71ad0b2f5e182!2sJasawebsite.Biz%20-%20Jasa%20Pembuatan%20Website%20Bandung!5e0!3m2!1sid!2sid!4v1683791232642!5m2!1sid!2sid"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div class="col-span-1 py-4 md:text-base text-sm">
-            <h3 class="text-white text-center  my-3">Company</h3>
-            <div class="flex justify-center">
+        <div class="col-span-1 sm:py-4 md:text-base text-sm">
+            <h3 class="text-white sm:text-center  my-3">Company</h3>
+            <div class="flex sm:justify-center">
                 <div>
                     <li class="mb-2 text-gray-500 md:text-sm text-xs"> Home</li>
                     <li class="my-2 text-gray-500 md:text-sm text-xs"> About</li>
@@ -19,8 +22,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-span-1 py-4 mx-auto">
-            <h3 class="text-white text-center my-3 md:text-base text-sm">Contact Us</h3>
+        <div class="col-span-1 sm:py-4 mx-auto">
+            <h3 class="text-white sm:text-center my-3 md:text-base text-sm">Contact Us</h3>
 
             <div class="text-gray-500">
                 <!-- Facebook -->
@@ -59,10 +62,7 @@
         </div>
     </div>
     <div class="grid md:grid-cols-3 grid-cols-2">
-        <div class="col-span-2 md:col-span-1 md:mx-5 mx-auto">
-            <img src="https://jasawebsite.biz/wp-content/uploads/2021/08/New-Project.png" width="180" alt="">
-        </div>
-        <div class="col-span-2 md:col-span-1 self-end text-center">
+        <div class="col-span-2 md:col-span-3 self-end text-center">
             <span class="text-[10px] md:text-sm text-gray-500 text-center dark:text-gray-400">© 2023 <a
                     href="https://instagram.com/ardan_wungkul" class="hover:underline">ArdanWungkul™</a>. All Rights
                 Reserved.</span>
