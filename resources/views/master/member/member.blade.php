@@ -100,7 +100,7 @@
             </h2>
 
             <div class=" shadow-md p-5 bg-gray-900 rounded-b-xl">
-                <div class="rounded-t-xl overflow-hidden">
+                <div class="rounded-t-xl overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-400">
                         <thead class="text-xs uppercase bg-gray-700 text-gray-200 text-center">
                             <tr>

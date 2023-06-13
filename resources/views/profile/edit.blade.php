@@ -26,7 +26,7 @@
                     </div>
                 </div>
             @else
-            @endifpor
+            @endif
         </div>
     </div>
 </x-app-layout>
