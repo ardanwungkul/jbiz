@@ -54,15 +54,15 @@ class PelangganController extends Controller
 
         $request->validate(
             [
-                'nama_pelanggan' => 'required|unique:pelanggans,nama_pelanggan',
+                'nama_pelanggan' => 'required',
                 'alamat' => 'required',
-                'no_hp' => 'required',
+                'no_hp' => 'required|unique:pelanggans,no_hp',
                 'keterangan_pelanggan' => 'required',
                 'link_history' => 'required',
                 'user_id' => 'required',
             ],
             [
-                'nama_pelanggan.unique' => 'Nama Pelanggan telah terdaftar dalam database.',
+                'no_hp.unique' => 'Nomor Hp telah digunakan .',
             ]
 
         );
@@ -93,7 +93,7 @@ class PelangganController extends Controller
             [
                 'nama_pelanggan' => 'required',
                 'alamat' => 'required',
-                'no_hp' => 'required',
+                'no_hp' => 'required|unique:pelanggans,no_hp',
                 'keterangan_pelanggan' => 'required',
                 'link_history' => 'required',
                 'user_id' => 'required'
@@ -101,9 +101,10 @@ class PelangganController extends Controller
             ]
         );
 
+        // dd($request);
         $pelanggan->fill($request->post())->save();
 
-        return redirect()->route('pelanggan.index')->with('success', 'Pelanggan berhasil diupdate');
+        return redirect()->back()->with('success', 'Pelanggan berhasil diupdate');
     }
 
     public function getAddEditRemoveColumn()

@@ -26,9 +26,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/portofolio', [PortofolioController::class, 'porto'])->name('portofolio');
-
-
-
 Route::get('/contact', function () {
     return view('contactForm');
 })->name('contact');
@@ -57,18 +54,30 @@ Route::middleware('admin')->controller(DomainController::class)->group(function 
     Route::get('domain/{domain}/edit', 'edit')->name('domain.edit');
 });
 
+Route::middleware('admin')->controller(PelangganController::class)->group(function () {
+    Route::get('pelanggan', 'index')->name('pelanggan.index');
+    Route::post('pelanggan', 'store')->name('pelanggan.store');
+    Route::get('pelanggan/create', 'create')->name('pelanggan.create');
+    Route::get('pelanggan/{pelanggan}', 'show')->name('pelanggan.show');
+    Route::delete('pelanggan/{pelanggan}', 'destroy')->name('pelanggan.destroy');
+    Route::get('pelanggan/{pelanggan}/edit', 'edit')->name('pelanggan.edit');
+});
+
 Route::middleware('auth')->group(function () {
+
     Route::get('/domain/{domain}', [DomainController::class, 'show'])->name('domain.show');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::resource('/member', MemberController::class);
     Route::get('/', [ImageController::class, 'index'])->name('welcome');
+    Route::put('pelanggan/{pelanggan}', [PelangganController::class, 'update'])->name('pelanggan.update');
+    Route::resource('/member', MemberController::class);
+    // Route::resource('/pelanggan', PelangganController::class);
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::resource('/domain', DomainController::class);
-    Route::resource('/pelanggan', PelangganController::class);
+    // Route::resource('/domain', DomainController::class);
+
     Route::resource('/nameserver', NameserverController::class);
     Route::resource('/user', UserController::class);
     Route::post('/store', [ImageController::class, 'store'])->name('store');
