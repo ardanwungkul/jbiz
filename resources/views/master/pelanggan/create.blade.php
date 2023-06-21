@@ -3,7 +3,7 @@
     <section class="bg-white dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Tambah Pelanggan Baru</h2>
-            <form action="{{ route('pelanggan.store') }}" method="post">
+            <form action="{{ route('pelanggan.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
 
@@ -23,6 +23,32 @@
                     </div>
 
                 @endif
+
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <img id="fotoProfil" class="object-cover w-40 h-40"
+                            src="{{ asset('storage/images/fotoProfil') }}/default_image.jpg" alt="">
+                        <div class="absolute z-10 top-0  opacity-0 hover:opacity-100">
+                            <label for="fotoProfilInput">
+                                <div class="w-40 h-40 bg-black opacity-60 flex items-center">
+                                    <p class="text-center w-full"><i class="fa-solid fa-pen"
+                                            style="color: #ffffff;"></i>
+                                    </p>
+                                </div>
+                                <input accept="image/*" type="file" name="image" class="hidden"
+                                    id="fotoProfilInput" />
+                            </label>
+                        </div>
+                        <script>
+                            fotoProfilInput.onchange = evt => {
+                                const [file] = fotoProfilInput.files
+                                if (file) {
+                                    fotoProfil.src = URL.createObjectURL(file)
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
 
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="col-span-2">

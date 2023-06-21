@@ -82,6 +82,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('/user', UserController::class);
     Route::post('/store', [ImageController::class, 'store'])->name('store');
     Route::delete("delete", [ImageController::class, 'delete'])->name('delete');
+    Route::get('/searchPelanggan', [DomainController::class, 'searchPelanggan'])->name('domain.searchPelanggan');
 });
 
 

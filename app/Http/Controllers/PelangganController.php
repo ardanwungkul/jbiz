@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
+use function PHPUnit\Framework\fileExists;
 
 class PelangganController extends Controller
 {
@@ -60,12 +61,15 @@ class PelangganController extends Controller
                 'keterangan_pelanggan' => 'required',
                 'link_history' => 'required',
                 'user_id' => 'required',
+                // 'image' => 'nullable',
             ],
             [
                 'no_hp.unique' => 'Nomor Hp telah digunakan .',
             ]
 
         );
+
+
         // dd($request);
 
         $pelanggan = new Pelanggan();
@@ -75,13 +79,28 @@ class PelangganController extends Controller
         $pelanggan->keterangan_pelanggan = $request->keterangan_pelanggan;
         $pelanggan->link_history = $request->link_history;
         $pelanggan->user_id = $request->user_id;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $nama_file = date('YmdHi') . $file->getClientOriginalName();
+            $file->move('storage/images/fotoProfil', $nama_file);
+            $pelanggan->image = $nama_file;
+        } else {
+            $pelanggan->image = 'default_image.jpg';
+        }
         $pelanggan->save();
 
-        return redirect()->route('pelanggan.index')->with(['success' => 'Pelanggan berhasil ditambahkan']);
+        return redirect()->back()->with(['success' => 'Pelanggan berhasil ditambahkan']);
     }
 
     public function destroy($id)
     {
+        $pelanggan = Pelanggan::find($id);
+        $file_path = public_path('storage/images/fotoProfil/' . $pelanggan->image);
+        if (file_exists($file_path)) {
+            if ($pelanggan->image !== 'default_image.jpg') {
+                unlink($file_path);
+            }
+        }
 
         Pelanggan::find($id)->delete();
         return response()->json(['success' => 'Pelanggan deleted successfully.']);
@@ -89,17 +108,31 @@ class PelangganController extends Controller
 
     public function update(Request $request, Pelanggan $pelanggan)
     {
+
+
         $request->validate(
             [
                 'nama_pelanggan' => 'required',
                 'alamat' => 'required',
-                'no_hp' => 'required|unique:pelanggans,no_hp',
+                'no_hp' => 'required',
                 'keterangan_pelanggan' => 'required',
                 'link_history' => 'required',
                 'user_id' => 'required'
-
             ]
         );
+        $file_path = public_path('storage/images/fotoProfil/' . $pelanggan->image);
+        if ($request->hasFile('image')) {
+            if ($pelanggan->image !== 'default_image.jpg') {
+                unlink($file_path);
+            }
+        }
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $nama_file = date('YmdHi') . $file->getClientOriginalName();
+            $file->move('storage/images/fotoProfil', $nama_file);
+            $pelanggan->image = $nama_file;
+        }
 
         // dd($request);
         $pelanggan->fill($request->post())->save();

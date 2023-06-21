@@ -58,7 +58,7 @@ class NameserverController extends Controller
         $nameserver->status_ns = $request->status_ns;
         $nameserver->save();
 
-        return redirect()->route('nameserver.index')->with(['success' => 'Nameserver berhasil ditambahkan']);
+        return redirect()->back()->with(['success' => 'Nameserver berhasil ditambahkan']);
     }
 
     public function destroy($id)

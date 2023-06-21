@@ -71,8 +71,9 @@ class DomainController extends Controller
                 'epp_code.unique' => 'Code telah digunakan.',
                 'nama_domain.unique' => 'Domain telah terdaftar dalam database.',
             ]
-
         );
+
+        // dd($request);
 
         $domain = new Domain();
         $domain->nama_domain = $request->nama_domain;
@@ -88,10 +89,9 @@ class DomainController extends Controller
         $domain->lokasi_hosting = $request->lokasi_hosting;
         $domain->paket_website = $request->paket_website;
         $domain->jumlah_email = $request->jumlah_email;
-        $domain->pelanggan_id = $request->pelanggan_id;
+        $domain->pelanggan_id = $request->input('pelanggan_id');
         $domain->nameserver_id = $request->nameserver_id;
         $domain->save();
-
         return redirect()->route('domain.index')->with(['success' => 'Domain berhasil ditambahkan']);
     }
 
@@ -154,5 +154,17 @@ class DomainController extends Controller
             'epp_code' => 'required|unique:domains,epp_code',
             'nama_domain' => 'required|unique:domains,nama_domain',
         ];
+    }
+    public function searchPelanggan(Request $request)
+    {
+
+        $query = $request->input('query');
+        if ($query === '') {
+            $results = Pelanggan::all();
+        } else {
+            $results = Pelanggan::where('nama_pelanggan', 'LIKE', '%' . $query . '%')->limit(5)->get();
+        }
+
+        return response()->json($results);
     }
 }

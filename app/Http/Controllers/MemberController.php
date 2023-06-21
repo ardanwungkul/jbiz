@@ -25,7 +25,13 @@ class MemberController extends Controller
     public function create()
     {
         $data = User::all();
-        return view('master.member.create', compact('data'));
+        $auth = Auth::user()->id;
+        $pelanggans = Pelanggan::with('user')->where('user_id', $auth)->get();
+        if (count($pelanggans) > 0) {
+            return back();
+        } else {
+            return view('master.member.create', compact('data'));
+        }
     }
     public function store(Request $request, Pelanggan $pelanggan)
     {
@@ -53,9 +59,10 @@ class MemberController extends Controller
         $pelanggan->keterangan_pelanggan = $request->keterangan_pelanggan;
         $pelanggan->link_history = $request->link_history;
         $pelanggan->user_id = $request->user_id;
+        $pelanggan->image = 'default_image.jpg';
         $pelanggan->save();
 
-        return redirect()->back()->with(['success' => 'Pelanggan berhasil ditambahkan']);
+        return redirect()->back();
     }
     public function show(Domain $domain, Pelanggan $pelanggan)
     {

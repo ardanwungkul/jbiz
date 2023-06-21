@@ -18,7 +18,8 @@ class Pelanggan extends Model
         'no_hp',
         'keterangan_pelanggan',
         'link_history',
-        'user_id'
+        'user_id',
+        'image'
     ];
 
     public function delete()
