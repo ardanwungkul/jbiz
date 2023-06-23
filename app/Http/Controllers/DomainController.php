@@ -68,6 +68,7 @@ class DomainController extends Controller
                 'nameserver_id' => 'required',
             ],
             [
+                'pelanggan_id.required' => 'Anda belum Menambahkan Pelanggan',
                 'epp_code.unique' => 'Code telah digunakan.',
                 'nama_domain.unique' => 'Domain telah terdaftar dalam database.',
             ]

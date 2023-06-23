@@ -8,6 +8,7 @@ use App\Http\Controllers\NameserverController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\UserController;
 use App\Models\image;
 use App\Models\Nameserver;
@@ -26,9 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/portofolio', [PortofolioController::class, 'porto'])->name('portofolio');
-Route::get('/contact', function () {
-    return view('contactForm');
-})->name('contact');
+Route::get('/contact', [SendEmailController::class, 'index'])->name('contact');
+Route::post('/contact/send', [SendEmailController::class, 'send'])->name('contact.send');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -57,6 +57,7 @@ Route::middleware('admin')->controller(DomainController::class)->group(function 
 Route::middleware('admin')->controller(PelangganController::class)->group(function () {
     Route::get('pelanggan', 'index')->name('pelanggan.index');
     Route::post('pelanggan', 'store')->name('pelanggan.store');
+    Route::post('pelangganDomain', 'store2')->name('pelanggan.store2');
     Route::get('pelanggan/create', 'create')->name('pelanggan.create');
     Route::get('pelanggan/{pelanggan}', 'show')->name('pelanggan.show');
     Route::delete('pelanggan/{pelanggan}', 'destroy')->name('pelanggan.destroy');
@@ -77,7 +78,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin'])->group(function () {
     // Route::resource('/domain', DomainController::class);
-
+    Route::post('nameserverDomain', [NameserverController::class, 'store2'])->name('nameserver.store2');
     Route::resource('/nameserver', NameserverController::class);
     Route::resource('/user', UserController::class);
     Route::post('/store', [ImageController::class, 'store'])->name('store');

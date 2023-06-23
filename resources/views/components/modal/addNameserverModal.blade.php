@@ -22,7 +22,7 @@
             </div>
             <!-- Modal body -->
             <div class="p-5">
-                <form action="{{ route('nameserver.store') }}" method="post">
+                <form action="{{ route('nameserver.store2') }}" method="post">
                     @csrf
 
 

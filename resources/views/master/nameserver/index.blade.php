@@ -2,7 +2,7 @@
     <div class="mx-4 pt-3 ">
 
         <a href="{{ route('nameserver.create') }}"
-            class="w-full bg-gray-600 text-gray-300 p-3 rounded shadow-sm focus:outline-none hover:bg-indigo-700 text-sm"
+            class="w-full bg-gray-600 text-gray-300 p-3 rounded shadow-sm focus:outline-none hover:bg-gray-500 text-sm"
             id="createNewProduct">Tambah Nameserver</a>
         <div class=" relative overflow-x-auto mt-4 rounded">
             <table class="data-table text-center stripe hover responsive text-sm">
@@ -45,8 +45,8 @@
                 info: false,
                 ajax: "{{ route('nameserver.index') }}",
                 columns: [{
-                        data: 'id',
-                        name: 'id'
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
                     {
                         data: 'nameserver1',

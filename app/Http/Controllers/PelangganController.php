@@ -14,7 +14,7 @@ class PelangganController extends Controller
 {
     public function index(Request $request, Pelanggan $pelanggan)
     {
-        $data = Pelanggan::all();
+        $data = Pelanggan::with('user')->get();
         if ($request->ajax()) {
 
             return DataTables::of($data)
@@ -89,7 +89,48 @@ class PelangganController extends Controller
         }
         $pelanggan->save();
 
-        return redirect()->back()->with(['success' => 'Pelanggan berhasil ditambahkan']);
+        return redirect()->route('pelanggan.index')->with(['success' => 'Pelanggan berhasil ditambahkan']);
+    }
+    public function store2(Request $request, Pelanggan $pelanggan)
+    {
+
+        $request->validate(
+            [
+                'nama_pelanggan' => 'required',
+                'alamat' => 'required',
+                'no_hp' => 'required|unique:pelanggans,no_hp',
+                'keterangan_pelanggan' => 'required',
+                'link_history' => 'required',
+                'user_id' => 'required',
+                // 'image' => 'nullable',
+            ],
+            [
+                'no_hp.unique' => 'Nomor Hp telah digunakan .',
+            ]
+
+        );
+
+
+        // dd($request);
+
+        $pelanggan = new Pelanggan();
+        $pelanggan->nama_pelanggan = $request->nama_pelanggan;
+        $pelanggan->alamat = $request->alamat;
+        $pelanggan->no_hp = $request->no_hp;
+        $pelanggan->keterangan_pelanggan = $request->keterangan_pelanggan;
+        $pelanggan->link_history = $request->link_history;
+        $pelanggan->user_id = $request->user_id;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $nama_file = date('YmdHi') . $file->getClientOriginalName();
+            $file->move('storage/images/fotoProfil', $nama_file);
+            $pelanggan->image = $nama_file;
+        } else {
+            $pelanggan->image = 'default_image.jpg';
+        }
+        $pelanggan->save();
+
+        return back()->with(['success' => 'Pelanggan berhasil ditambahkan']);
     }
 
     public function destroy($id)
@@ -137,19 +178,12 @@ class PelangganController extends Controller
         // dd($request);
         $pelanggan->fill($request->post())->save();
 
-        return redirect()->back()->with('success', 'Pelanggan berhasil diupdate');
+        return redirect()->route('pelanggan.index')->with('success', 'Pelanggan berhasil diupdate');
     }
 
     public function getAddEditRemoveColumn()
     {
         return view('datatables.collection.add-edit-remove-column');
-    }
-
-    public function rules()
-    {
-        return [
-            'nama_pelanggan' => 'required|unique:pelanggans,nama_pelanggan',
-        ];
     }
 
     public function edit(Pelanggan $pelanggan)

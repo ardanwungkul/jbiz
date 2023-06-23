@@ -1,7 +1,11 @@
 <x-app-layout>
     <div class="mx-4 pt-3">
         <div class=" relative overflow-x-auto mt-4 rounded">
-
+            <button class="mt-10">
+                <a href="{{ route('user.create') }}"
+                    class=" w-full bg-gray-600 text-gray-300 p-3 rounded text-xs sm:text-sm shadow-sm focus:outline-none hover:bg-gray-500"
+                    id="createNewProduct">Tambah User</a>
+            </button>
             <table class="data-table text-center stripe hover responsive text-sm ">
                 <thead class="bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -43,8 +47,8 @@
                 info: false,
                 ajax: "{{ route('user.index') }}",
                 columns: [{
-                        data: 'id',
-                        name: 'id'
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
                     {
                         data: 'name',

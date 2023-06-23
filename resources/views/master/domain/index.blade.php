@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="mx-4 pt-3">
         <a href="{{ route('domain.create') }}"
-            class=" w-full bg-gray-600 text-gray-300 p-3 rounded text-xs sm:text-sm shadow-sm focus:outline-none hover:bg-indigo-700"
+            class=" w-full bg-gray-600 text-gray-300 p-3 rounded text-xs sm:text-sm shadow-sm focus:outline-none hover:bg-g"
             id="createNewProduct">Tambah Domain</a>
         <div class=" relative overflow-x-auto mt-4 rounded">
             <table class="data-table text-center stripe hover responsive text-sm ">

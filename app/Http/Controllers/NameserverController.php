@@ -58,6 +58,27 @@ class NameserverController extends Controller
         $nameserver->status_ns = $request->status_ns;
         $nameserver->save();
 
+        return redirect()->route('nameserver.index')->with(['success' => 'Nameserver berhasil ditambahkan']);
+    }
+    public function store2(Request $request, Nameserver $nameserver)
+    {
+
+        $request->validate(
+            [
+                'nameserver1' => 'required',
+                'nameserver2' => 'required',
+                'tanggal_ns' => 'required',
+                'status_ns' => 'required',
+            ],
+        );
+
+        $nameserver = new Nameserver();
+        $nameserver->nameserver1 = $request->nameserver1;
+        $nameserver->nameserver2 = $request->nameserver2;
+        $nameserver->tanggal_ns = $request->tanggal_ns;
+        $nameserver->status_ns = $request->status_ns;
+        $nameserver->save();
+
         return redirect()->back()->with(['success' => 'Nameserver berhasil ditambahkan']);
     }
 

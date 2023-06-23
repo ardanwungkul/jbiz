@@ -2,7 +2,7 @@
     <div class="pt-3 mx-4 ">
 
         <a href="{{ route('pelanggan.create') }}"
-            class="w-full bg-gray-600 text-gray-300 p-3 rounded shadow-sm focus:outline-none hover:bg-indigo-700 text-sm"
+            class="w-full bg-gray-600 text-gray-300 p-3 rounded shadow-sm focus:outline-none hover:bg-gray-500 text-sm"
             id="createNewProduct">Tambah Pelanggan</a>
         <div class=" relative overflow-x-auto mt-4 rounded">
             <table class="data-table text-center stripe hover responsive text-sm">
@@ -11,6 +11,7 @@
                         <th>No</th>
                         <th>Nama Pelanggan</th>
                         <th>Nomor Hp</th>
+                        <th>Status User</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -43,10 +44,9 @@
                 info: false,
                 ajax: "{{ route('pelanggan.index') }}",
                 columns: [{
-                        data: 'id',
-                        name: 'id'
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex'
                     },
-
                     {
                         data: 'nama_pelanggan',
                         name: 'nama_pelanggan',
@@ -59,6 +59,17 @@
                     {
                         data: 'no_hp',
                         name: 'no_hp'
+                    },
+                    {
+                        data: 'user_id',
+                        name: 'user_id',
+                        render: function(data, type, full, meta) {
+                            if (full.user_id !== 1) {
+                                return full.user.name;
+                            } else {
+                                return '<p class="text-red-600">Tidak Aktif</p>';
+                            }
+                        }
                     },
                     {
                         data: 'action',

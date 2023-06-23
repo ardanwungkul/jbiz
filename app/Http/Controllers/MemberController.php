@@ -62,7 +62,7 @@ class MemberController extends Controller
         $pelanggan->image = 'default_image.jpg';
         $pelanggan->save();
 
-        return redirect()->back();
+        return back();
     }
     public function show(Domain $domain, Pelanggan $pelanggan)
     {

@@ -23,7 +23,7 @@
             <!-- Modal body -->
             <div class="p-5">
 
-                <form action="{{ route('pelanggan.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('pelanggan.store2') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
 

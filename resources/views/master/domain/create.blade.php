@@ -5,29 +5,10 @@
             <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Tambah Domain Baru</h2>
             <form id="myForm" action="{{ route('domain.store') }}" method="post">
                 @csrf
-
-
-                @if (count($errors) > 0)
-                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                        @foreach ($errors->all() as $error)
-                            <li><span class="block sm:inline">{{ $error }}</span></li>
-                            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                                <svg class="fill-current h-6 w-6 text-red-500" role="button"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <title>Close</title>
-                                    <path
-                                        d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-                                </svg>
-                            </span>
-                        @endforeach
-                    </div>
-
-                @endif
-
                 <div class="grid gap-2 grid-cols-2 sm:grid-cols-2 sm:gap-6">
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="nama_domain"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Domain</label>
+                        <label for="nama_domain" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
+                            Domain</label>
                         <input type="text" name="nama_domain" id="nama_domain"
                             class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             placeholder="Masukan Nama Domain" required="">
@@ -39,7 +20,7 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             placeholder="Masukan EPP Code" required="">
                     </div>
-                    <div class="w-full">
+                    <div class="col-span-2 sm:col-span-1">
                         <label for="pelanggan_id"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pelanggan</label>
                         <div class="flex gap-2">
@@ -80,7 +61,7 @@
 
                     </div>
 
-                    <div class="w-full">
+                    <div class="col-span-2 sm:col-span-1">
                         <label for="nameserver_id"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nameserver</label>
                         <div class="flex gap-2">
@@ -178,7 +159,7 @@
                 </div>
                 <input class="hidden" type="text" name="pelanggan_id" id="hidden-input">
                 <button type="submit"
-                    class=" bg-white p-3 rounded shadow-sm focus:outline-none hover:bg-indigo-700inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    class="bg-gray-600 text-gray-200 p-3 rounded shadow-sm focus:outline-none hover:bg-gray-500 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900">
                     Tambah Domain
                 </button>
             </form>
@@ -207,9 +188,12 @@
 
     <script>
         $(document).ready(function() {
-            $('#search-input').keyup(function() {
+            var selectedId = null;
+
+            $('#search-input').on('input', function() {
                 var query = $(this).val();
                 if (query.length >= 2) {
+                    // Lakukan permintaan pencarian
                     $.ajax({
                         url: '{{ route('domain.searchPelanggan') }}',
                         data: {
@@ -219,13 +203,19 @@
                             var results = response;
 
                             $('#search-results').empty();
-                            $.each(results, function(index, result) {
-                                $('#search-results').append(
-                                    '<p title="" class="search-item hover:bg-gray-500 px-3 py-1 rounded-lg" title="" data-id="' +
-                                    result.id + '">' + result.nama_pelanggan +
-                                    '</p>'
-                                );
-                            });
+                            if (results.length > 0) {
+                                $.each(results, function(index, result) {
+                                    $('#search-results').append(
+                                        '<p title="No Hp : ' + result.no_hp +
+                                        '" class="search-item hover:bg-gray-500 px-3 py-1 rounded-lg" data-id="' +
+                                        result.id + '">' + result.nama_pelanggan +
+                                        '</p>'
+                                    );
+                                });
+                            } else {
+                                $('#search-input').data('no-match',
+                                    true); // Menandai bahwa tidak ada hasil yang sesuai
+                            }
                         }
                     });
                 } else {
@@ -233,8 +223,20 @@
                 }
             });
 
+            // Event listener untuk mendeteksi saat input kehilangan fokus (blur)
+            $('#search-input').on('blur', function() {
+                var noMatch = $(this).data('no-match');
+                // var empty = $.('#search-result');
+                if (noMatch) {
+                    $('#search-input').val('');
+                    $('#hidden-input').val('');
+                    $('#search-results').empty();
+                }
+                $(this).removeData('no-match'); // Menghapus data 'no-match'
+            });
+
             $('#search-results').on('click', '.search-item', function() {
-                selectedId = $(this).data('id'); // Ubah nilai variabel selectedId
+                selectedId = $(this).data('id');
                 var selectedNama = $(this).text();
                 $('#search-input').val(selectedNama);
                 $('#hidden-input').val(selectedId);
