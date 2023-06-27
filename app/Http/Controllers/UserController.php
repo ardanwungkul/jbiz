@@ -51,7 +51,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed'],
         ]);
@@ -66,6 +66,26 @@ class UserController extends Controller
 
 
         return redirect()->route('user.index');
+        // return redirect(RouteServiceProvider::HOME);
+    }
+    public function store2(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed'],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        event(new Registered($user));
+
+
+        return redirect()->back();
         // return redirect(RouteServiceProvider::HOME);
     }
     public function update(Request $request, User $user)

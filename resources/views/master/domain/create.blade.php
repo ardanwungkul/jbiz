@@ -205,8 +205,11 @@
                             $('#search-results').empty();
                             if (results.length > 0) {
                                 $.each(results, function(index, result) {
+                                    var title = result.domain[0] ? result.domain[0]
+                                        .nama_domain : 'Belum Memiliki Domain';
                                     $('#search-results').append(
-                                        '<p title="No Hp : ' + result.no_hp +
+                                        '<p title="Nama Domain : ' + title +
+                                        ' &#013; No Hp : ' + result.no_hp +
                                         '" class="search-item hover:bg-gray-500 px-3 py-1 rounded-lg" data-id="' +
                                         result.id + '">' + result.nama_pelanggan +
                                         '</p>'
@@ -214,7 +217,7 @@
                                 });
                             } else {
                                 $('#search-input').data('no-match',
-                                    true); // Menandai bahwa tidak ada hasil yang sesuai
+                                    true);
                             }
                         }
                     });
@@ -223,10 +226,8 @@
                 }
             });
 
-            // Event listener untuk mendeteksi saat input kehilangan fokus (blur)
             $('#search-input').on('blur', function() {
                 var noMatch = $(this).data('no-match');
-                // var empty = $.('#search-result');
                 if (noMatch) {
                     $('#search-input').val('');
                     $('#hidden-input').val('');

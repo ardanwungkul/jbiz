@@ -18,17 +18,16 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
-    <div class="w-full bg-gray-100 dark:bg-gray-900 h-screen">
+    <div class="w-full bg-gray-100 bg-moon h-screen">
         <div class=" h-full flex items-center justify-center">
             <div class="lg:grid lg:grid-cols-2 flex-auto">
-                <div class="lg:col-span-1 self-center pt-6 bg-gray-100 dark:bg-gray-900 mb-5">
+                <div class="lg:col-span-1 self-center pt-6 bg-transparent mb-5">
                     <a href="/" class="flex justify-center">
-                        <img class="w-56 lg:w-auto"
-                            src="https://jasawebsite.biz/wp-content/uploads/2021/08/New-Project.png" alt="">
+                        <img class="w-56 lg:w-auto" src="{{ asset('assets/logo.png') }}" alt="">
                     </a>
                 </div>
                 <div class="lg:col-span-1 self-center lg:px-32 px-10">
-                    <div class=" px-6 py-7  self-center bg-gradient-to-b from-gray-800  shadow-md  rounded-lg">
+                    <div class="login px-6 py-7  self-center shadow-md border border-opacity-10 rounded-lg">
                         {{ $slot }}
                     </div>
                 </div>

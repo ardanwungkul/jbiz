@@ -1,1 +1,1 @@
-<img src="https://jasawebsite.biz/wp-content/uploads/2021/08/New-Project.png" width="200" alt="">
+<img src="{{ asset('assets/logo.png') }}" width="200" alt="">

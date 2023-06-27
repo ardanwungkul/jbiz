@@ -55,7 +55,8 @@
                         data: 'nama_domain',
                         name: 'nama_domain',
                         render: function(data, type, full, meta) {
-                            return '<a href="/domain/' + full.id + ' ">' + full.nama_domain +
+                            return '<a href="/domain/' + full.slug + ' ">' + full
+                                .nama_domain +
                                 '</a>';
                         }
                     },

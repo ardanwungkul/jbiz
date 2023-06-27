@@ -16,13 +16,16 @@ class SendEmailController extends Controller
     {
         $this->validate($request, [
             'name'     =>  'required',
-            'email'  =>  'required|email',
+            'email'  =>  'required',
             'message' =>  'required'
         ]);
+        // dd($request);
 
+        $charactersToRemove = ['0', '62'];
+        $string = ltrim($request->email, implode('', $charactersToRemove));
         $data = array(
             'name'      =>  $request->name,
-            'email'      =>  $request->email,
+            'email'      => '+62' . $string,
             'message'   =>   $request->message
         );
 

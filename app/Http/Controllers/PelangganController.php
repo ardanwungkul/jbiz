@@ -69,13 +69,15 @@ class PelangganController extends Controller
 
         );
 
+        $charactersToRemove = ['0', '62'];
+        $string = ltrim($request->no_hp, implode('', $charactersToRemove));
 
         // dd($request);
 
         $pelanggan = new Pelanggan();
         $pelanggan->nama_pelanggan = $request->nama_pelanggan;
         $pelanggan->alamat = $request->alamat;
-        $pelanggan->no_hp = $request->no_hp;
+        $pelanggan->no_hp = '62' . $string;
         $pelanggan->keterangan_pelanggan = $request->keterangan_pelanggan;
         $pelanggan->link_history = $request->link_history;
         $pelanggan->user_id = $request->user_id;
@@ -189,7 +191,8 @@ class PelangganController extends Controller
     public function edit(Pelanggan $pelanggan)
     {
         $data = User::all();
-        return view('master.pelanggan.edit', compact('pelanggan', 'data'));
+        $pelanggans = Pelanggan::all();
+        return view('master.pelanggan.edit', compact('pelanggan', 'data', 'pelanggans'));
     }
 
     public function show(Pelanggan $pelanggan, Domain $domain)

@@ -8,6 +8,7 @@ use App\Models\Pelanggan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
 class DomainController extends Controller
 {
@@ -92,6 +93,7 @@ class DomainController extends Controller
         $domain->jumlah_email = $request->jumlah_email;
         $domain->pelanggan_id = $request->input('pelanggan_id');
         $domain->nameserver_id = $request->nameserver_id;
+        $domain->slug = Str::slug($request->nama_domain) . Str::random(5);
         $domain->save();
         return redirect()->route('domain.index')->with(['success' => 'Domain berhasil ditambahkan']);
     }
@@ -136,13 +138,18 @@ class DomainController extends Controller
         return view('master.domain.edit', compact('data', 'domain'));
     }
 
-    public function show(Domain $domain)
+    public function show(Domain $domain, $slug)
     {
+        $domains = Domain::where('slug', $slug)->first();
+        if (!$domains) {
+            // Jika data tidak ditemukan, kembalikan respons 404
+            abort(404);
+        }
         $today = Carbon::today();
         $expirationDate = Carbon::parse($domain->tanggal_expired);
 
         $data = Domain::with('pelanggan', 'nameserver')->get();
-        return view('master.domain.show', compact('data', 'domain', 'today', 'expirationDate'));
+        return view('master.domain.show', compact('data', 'domain', 'today', 'expirationDate', 'domains'));
     }
 
     public function getAddEditRemoveColumn()
@@ -161,9 +168,9 @@ class DomainController extends Controller
 
         $query = $request->input('query');
         if ($query === '') {
-            $results = Pelanggan::all();
+            $results = Pelanggan::with('domain');
         } else {
-            $results = Pelanggan::where('nama_pelanggan', 'LIKE', '%' . $query . '%')->limit(5)->get();
+            $results = Pelanggan::where('nama_pelanggan', 'LIKE', '%' . $query . '%')->with('domain')->limit(5)->get();
         }
 
         return response()->json($results);

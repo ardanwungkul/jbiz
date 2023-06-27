@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('lokasi_hosting');
             $table->string('paket_website');
             $table->integer('jumlah_email');
+            $table->string('slug');
             $table->timestamps();
         });
     }

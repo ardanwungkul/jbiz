@@ -14,24 +14,21 @@
 
                 <!-- Navigation Links -->
                 <div class="flex items-center">
-                    {{-- @if (Auth::user() && Auth::user()->isAdmin == true)
+
+                    @if (Auth::user() && Auth::user()->isAdmin == true)
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('')">
                                 {{ __('Dashboard') }}
                             </x-nav-link>
                         </div>
                     @else
-                    @endif --}}
+                    @endif
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                             {{ __('Home') }}
                         </x-nav-link>
                     </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('')">
-                            {{ __('About') }}
-                        </x-nav-link>
-                    </div>
+
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                             {{ __('Contact') }}

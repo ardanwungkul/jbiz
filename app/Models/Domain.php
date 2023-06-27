@@ -27,8 +27,10 @@ class Domain extends Model
         'paket_website',
         'jumlah_email',
         'pelanggan_id',
-        'nameserver_id'
+        'nameserver_id',
+        'slug'
     ];
+
 
     public function delete()
     {

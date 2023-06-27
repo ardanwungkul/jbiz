@@ -57,8 +57,8 @@
                     </h2>
                 </div>
                 <div class="lg:flex gap-5">
-                    <div class=" border rounded-lg flex items-center justify-center p-5 border-gray-500">
-                        <div class="">
+                    <div class=" lg:border rounded-lg flex items-center justify-center p-5 border-gray-500">
+                        <div class="lg:border-none border p-5 rounded-lg border-gray-500">
                             @if (count($pelanggans) > 0)
                                 <div class="flex justify-center">
                                     <img class="border object-cover w-52 h-52 rounded-full transition ease-out duration-1000 hover:scale-105"
@@ -138,7 +138,7 @@
                                             </td>
 
                                             <td class="px-6 py-4">
-                                                <a href="/domain/{{ $item->id }}"
+                                                <a href="{{ route('domain.show', ['slug' => $item->slug]) }}"
                                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Detail</a>
                                             </td>
                                         </tr>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomainController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MemberController;
@@ -30,9 +31,15 @@ Route::get('/portofolio', [PortofolioController::class, 'porto'])->name('portofo
 Route::get('/contact', [SendEmailController::class, 'index'])->name('contact');
 Route::post('/contact/send', [SendEmailController::class, 'send'])->name('contact.send');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/dashboard/users', [DashboardController::class, 'users'])->name('dashboard.users');
+Route::get('/dashboard/pelanggans', [DashboardController::class, 'pelanggans'])->name('dashboard.pelanggans');
+Route::get('/dashboard/domains', [DashboardController::class, 'domains'])->name('dashboard.domains');
 
 Route::middleware('admin')->controller(PortofolioController::class)->group(
     function () {
@@ -66,7 +73,7 @@ Route::middleware('admin')->controller(PelangganController::class)->group(functi
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/domain/{domain}', [DomainController::class, 'show'])->name('domain.show');
+    Route::get('/domain/{slug}', [DomainController::class, 'show'])->name('domain.show');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -79,6 +86,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     // Route::resource('/domain', DomainController::class);
     Route::post('nameserverDomain', [NameserverController::class, 'store2'])->name('nameserver.store2');
+    Route::post('addUser', [UserController::class, 'store2'])->name('user.store2');
     Route::resource('/nameserver', NameserverController::class);
     Route::resource('/user', UserController::class);
     Route::post('/store', [ImageController::class, 'store'])->name('store');
