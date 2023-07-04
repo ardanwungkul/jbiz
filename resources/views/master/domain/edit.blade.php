@@ -123,10 +123,10 @@
                     </div>
                     <div class="w-full">
                         <label for="pelanggan_id"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User</label>
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pelanggan</label>
                         <select id="pelanggan_id" value="{{ $domain->pelanggan_id }}" name="pelanggan_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected disabled>Pilih User</option>
+                            <option value="{{ $domain->pelanggan_id }}" selected>Pilih User</option>
                             @foreach ($data as $item)
                                 <option value="{{ $item->id }}"
                                     {{ $domain->pelanggan_id === $item->id ? 'selected' : '' }}>
