@@ -127,10 +127,10 @@
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 {{ $item->nama_domain }}
                                             </th>
-                                            <td class="px-6 py-4 text-gray-900">
+                                            <td class="px-6 py-4 dark:text-white text-gray-900">
                                                 {{ $item->tanggal_expired }}
                                             </td>
-                                            <td>
+                                            <td class="text-black dark:text-white">
                                                 @if ($today >= $expirationDate::parse($item->tanggal_expired))
                                                     Expired
                                                 @else
