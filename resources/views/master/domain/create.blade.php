@@ -29,34 +29,14 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     type="text" id="search-input" placeholder="Search">
 
-                                <div class="bg-gray-600 text-white text-sm z-10 absolute w-full rounded-lg mt-1"
+                                <div class="dark:bg-gray-600 bg-blue-900 text-white text-sm z-10 absolute w-full rounded-lg mt-1"
                                     id="search-results">
                                 </div>
                             </div>
-                            {{-- <select id="pelanggan_id" name="pelanggan_id"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option>Pilih Pelanggan</option>
-                                @foreach ($data as $item)
-                                    <option class="max-h-5"
-                                        title="
-                                    @if (count($item->domain) > 0) {{ $item->domain[0]->nama_domain }} 
-                                    @else
-                                    Pelanggan Belum Memiliki Domain @endif
-                                                "
-                                        value="{{ $item->id }}">
-                                        <div class="">
-                                            <div>
-                                                <p>
-                                                    {{ $item->nama_pelanggan }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </option>
-                                @endforeach
-                            </select> --}}
+
 
                             <button type="button" data-modal-target="pelangganModal" data-modal-toggle="pelangganModal"
-                                class="px-3 bg-gray-700 rounded-lg border-gray-300 text-white">+</button>
+                                class="px-3 dark:bg-gray-700 bg-blue-900 rounded-lg border-gray-300 text-white">+</button>
                         </div>
 
                     </div>
@@ -75,7 +55,7 @@
                             </select>
                             <button type="button" data-modal-target="nameserverModal"
                                 data-modal-toggle="nameserverModal"
-                                class="px-3 bg-gray-700 rounded-lg border-gray-300 text-white">+</button>
+                                class="px-3 dark:bg-gray-700 bg-blue-900 rounded-lg border-gray-300 text-white">+</button>
                         </div>
                     </div>
                     <div class="col-span-2 sm:col-span-1">
@@ -159,7 +139,7 @@
                 </div>
                 <input class="hidden" type="text" name="pelanggan_id" id="hidden-input">
                 <button type="submit"
-                    class="bg-gray-600 text-gray-200 p-3 rounded shadow-sm focus:outline-none hover:bg-gray-500 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900">
+                    class="dark:bg-gray-600 text-gray-200 p-3 rounded shadow-sm focus:outline-none bg-blue-900 hover:bg-blue-700 dark:hover:bg-gray-500 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900">
                     Tambah Domain
                 </button>
             </form>
@@ -210,7 +190,7 @@
                                     $('#search-results').append(
                                         '<p title="Nama Domain : ' + title +
                                         ' &#013; No Hp : ' + result.no_hp +
-                                        '" class="search-item hover:bg-gray-500 px-3 py-1 rounded-lg" data-id="' +
+                                        '" class="search-item hover:bg-blue-800 dark:hover:bg-gray-500 px-3 py-1 rounded-lg" data-id="' +
                                         result.id + '">' + result.nama_pelanggan +
                                         '</p>'
                                     );

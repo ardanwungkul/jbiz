@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('paket_website');
             $table->integer('jumlah_email');
             $table->string('slug');
+            $table->string('hidden_epp');
             $table->timestamps();
         });
     }

@@ -93,6 +93,7 @@ class DomainController extends Controller
         $domain->jumlah_email = $request->jumlah_email;
         $domain->pelanggan_id = $request->input('pelanggan_id');
         $domain->nameserver_id = $request->nameserver_id;
+        $domain->hidden_epp = '';
         $domain->slug = Str::slug($request->nama_domain) . Str::random(5);
         $domain->save();
         return redirect()->route('domain.index')->with(['success' => 'Domain berhasil ditambahkan']);
@@ -123,6 +124,7 @@ class DomainController extends Controller
                 'paket_website' => 'required',
                 'jumlah_email' => 'required',
                 'pelanggan_id' => 'required',
+
             ]
         );
 

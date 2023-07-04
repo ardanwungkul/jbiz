@@ -1,11 +1,12 @@
 <x-app-layout>
     <section class="bg-white dark:bg-gray-900 pt-3 mx-3 ">
-        <div class="pb-3 mx-auto mt-5 rounded-xl max-w-2xl lg:pb-6 bg-gray-600 ">
+        <div
+            class="pb-3 mx-auto mt-5 rounded-xl max-w-2xl lg:pb-6 dark:bg-gray-600 border border-black dark:border-none">
             <div class="grid gap-2 sm:grid-cols-2 sm:gap-2">
                 {{-- header --}}
 
                 <div
-                    class=" sm:p-3 p-3 items-center justify-between flex col-span-2 font-medium text-left text-gray-500 rounded-t-xl bg-gray-800">
+                    class=" sm:p-3 p-3 items-center justify-between flex col-span-2 font-medium text-left text-gray-500 rounded-t-xl bg-blue-900 dark:bg-gray-800">
 
                     <div class="col-span-1">
                         <p class="text-white font-black font-sans tracking-widest text-xl flex-auto">
@@ -29,7 +30,7 @@
             </div>
 
             <div class="grid gap-2 sm:grid-cols-2 sm:gap-2 px-5 mt-5">
-                <p class="text-white ml-1">Informasi Domain</p>
+                <p class="dark:text-white text-black ml-1">Informasi Domain</p>
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-2 p-5 col-span-2 border border-gray-400 rounded">
 
 
@@ -39,14 +40,15 @@
                                 Domain</p>
                             <p>:</p>
                         </div>
-                        <p class="text-gray-200 col-span-3">{{ $domains->nama_domain }}</p>
+                        <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->nama_domain }}</p>
                     </div>
                     <div class="grid sm:grid-cols-4 grid-cols-5 col-span-2 ">
                         <div class="flex justify-between pr-2 sm:col-span-1 col-span-2 w-full text-white">
                             <p class=" text-sm font-medium text-gray-900 dark:text-white self-center ">Tanggal Mulai</p>
                             <p>:</p>
                         </div>
-                        <p class="text-gray-200 col-span-3">{{ date('j \\ F Y', strtotime($domains->tanggal_mulai)) }}
+                        <p class="text-black dark:text-gray-200 col-span-3">
+                            {{ date('j \\ F Y', strtotime($domains->tanggal_mulai)) }}
                         </p>
                     </div>
                     <div class="grid sm:grid-cols-4 grid-cols-5 col-span-2 ">
@@ -54,7 +56,8 @@
                             <p class=" text-sm font-medium text-gray-900 dark:text-white self-center ">Tanggal Mulai</p>
                             <p>:</p>
                         </div>
-                        <p class="text-gray-200 col-span-3">{{ date('j \\ F Y', strtotime($domains->tanggal_expired)) }}
+                        <p class="text-black dark:text-gray-200 col-span-3">
+                            {{ date('j \\ F Y', strtotime($domains->tanggal_expired)) }}
                         </p>
                     </div>
                     <div class="grid sm:grid-cols-4 grid-cols-5 col-span-2 ">
@@ -63,17 +66,29 @@
                             <p>:</p>
                         </div>
                         <div>
-                            <p class="text-gray-200 col-span-3">{{ $domains->nameserver->nameserver1 }}</p>
-                            <p class="text-gray-200 col-span-3">{{ $domains->nameserver->nameserver2 }}</p>
+                            <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->nameserver->nameserver1 }}
+                            </p>
+                            <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->nameserver->nameserver2 }}
+                            </p>
                         </div>
                     </div>
-                    <div class="grid sm:grid-cols-4 grid-cols-5 col-span-2 ">
-                        <div class="flex justify-between pr-2 sm:col-span-1 col-span-2 w-full text-white">
-                            <p class=" text-sm font-medium text-gray-900 dark:text-white self-center ">Epp Code</p>
-                            <p>:</p>
+                    @if (Auth::user() && Auth::user()->isAdmin == true)
+                        <div class="grid sm:grid-cols-4 grid-cols-5 col-span-2 ">
+                            <div class="flex justify-between pr-2 sm:col-span-1 col-span-2 w-full text-white">
+                                <p class=" text-sm font-medium text-gray-900 dark:text-white self-center ">Epp Code</p>
+                                <p>:</p>
+                            </div>
+                            <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->epp_code }}</p>
                         </div>
-                        <p class="text-gray-200 col-span-3">{{ $domains->epp_code }}</p>
-                    </div>
+                    @else
+                        <div class="{{ $domains->hidden_epp }} grid sm:grid-cols-4 grid-cols-5 col-span-2 ">
+                            <div class="flex justify-between pr-2 sm:col-span-1 col-span-2 w-full text-white">
+                                <p class=" text-sm font-medium text-gray-900 dark:text-white self-center ">Epp Code</p>
+                                <p>:</p>
+                            </div>
+                            <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->epp_code }}</p>
+                        </div>
+                    @endif
                     @if (Auth::user() && Auth::user()->isAdmin == true)
                         <div class="grid sm:grid-cols-4 grid-cols-5 col-span-2 ">
                             <div class="flex justify-between pr-2 sm:col-span-1 col-span-2 w-full text-white">
@@ -81,7 +96,7 @@
                                 </p>
                                 <p>:</p>
                             </div>
-                            <p class="text-gray-200 col-span-3">{{ $domains->lokasi_domain }}</p>
+                            <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->lokasi_domain }}</p>
                         </div>
                     @else
                     @endif
@@ -90,7 +105,7 @@
                             <p class=" text-sm font-medium text-gray-900 dark:text-white self-center ">Paket Website</p>
                             <p>:</p>
                         </div>
-                        <p class="text-gray-200 col-span-3">{{ $domains->paket_website }}</p>
+                        <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->paket_website }}</p>
                     </div>
                     @if (Auth::user() && Auth::user()->isAdmin == true)
                         <div class="grid sm:grid-cols-4 grid-cols-5 col-span-2 ">
@@ -99,7 +114,7 @@
                                 </p>
                                 <p>:</p>
                             </div>
-                            <p class="text-gray-200 col-span-3">{{ $domains->jumlah_email }}</p>
+                            <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->jumlah_email }}</p>
                         </div>
                     @else
                     @endif
@@ -110,7 +125,7 @@
                             <p>:</p>
                         </div>
                         <textarea disabled id="keterangan_domain" name="keterangan_domain" rows="8"
-                            class=" col-span- h-40 block p-2.5 w-full text-sm bg-gray-50 text-gray-200 col-span-3 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600  dark:focus:ring-primary-500 dark:focus:border-primary-500">{{ $domains->keterangan_domain }}</textarea>
+                            class=" col-span- h-40 block p-2.5 w-full text-sm bg-gray-50 text-black dark:text-gray-200 col-span-3 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600  dark:focus:ring-primary-500 dark:focus:border-primary-500">{{ $domains->keterangan_domain }}</textarea>
                     </div>
                 </div>
                 <p class="text-white ml-1 mt-5">Informasi Hosting</p>
@@ -120,7 +135,7 @@
                             <p class=" text-sm font-medium text-gray-900 dark:text-white self-center ">Hosting</p>
                             <p>:</p>
                         </div>
-                        <p class="text-gray-200 col-span-3">{{ $domains->hosting }}</p>
+                        <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->hosting }}</p>
                     </div>
                     <div class="grid sm:grid-cols-4 grid-cols-5 col-span-2">
                         <div class="flex justify-between pr-2 sm:col-span-1 col-span-2 w-full text-white">
@@ -128,7 +143,7 @@
                             </p>
                             <p>:</p>
                         </div>
-                        <p class="text-gray-200 col-span-3">{{ $domains->kapasitas_hosting }}</p>
+                        <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->kapasitas_hosting }}</p>
                     </div>
                     <div class="grid sm:grid-cols-4 grid-cols-5 col-span-2">
                         <div class="flex justify-between pr-2 sm:col-span-1 col-span-2 w-full text-white">
@@ -136,7 +151,7 @@
                             </p>
                             <p>:</p>
                         </div>
-                        <p class="text-gray-200 col-span-3">
+                        <p class="text-black dark:text-gray-200 col-span-3">
                             {{ date('j \\ F Y', strtotime($domains->tanggal_hosting)) }}
                         </p>
                     </div>
@@ -146,7 +161,7 @@
                             </p>
                             <p>:</p>
                         </div>
-                        <p class="text-gray-200 col-span-3">{{ $domains->lokasi_hosting }}</p>
+                        <p class="text-black dark:text-gray-200 col-span-3">{{ $domains->lokasi_hosting }}</p>
                     </div>
                 </div>
 
@@ -154,7 +169,7 @@
 
                 <div class="sm:grid sm:grid-cols-4 col-span-2">
                     <button onclick="history.back()"
-                        class=" col-end-5 bg-gray-900 text-white p-3 rounded shadow-sm focus:outline-none hover:bg-indigo-700inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                        class=" col-end-5 dark:bg-gray-900 bg-blue-900 dark:hover:bg-gray-800 text-white p-3 rounded shadow-sm focus:outline-none hover:bg-indigo-700  items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                         Kembali
                     </button>
                 </div>

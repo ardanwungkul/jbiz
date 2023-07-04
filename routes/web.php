@@ -11,8 +11,6 @@ use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\UserController;
-use App\Models\image;
-use App\Models\Nameserver;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,8 +32,6 @@ Route::post('/contact/send', [SendEmailController::class, 'send'])->name('contac
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-
-// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/dashboard/users', [DashboardController::class, 'users'])->name('dashboard.users');
 Route::get('/dashboard/pelanggans', [DashboardController::class, 'pelanggans'])->name('dashboard.pelanggans');
@@ -79,12 +75,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/', [ImageController::class, 'index'])->name('welcome');
     Route::put('pelanggan/{pelanggan}', [PelangganController::class, 'update'])->name('pelanggan.update');
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/member', MemberController::class);
-    // Route::resource('/pelanggan', PelangganController::class);
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    // Route::resource('/domain', DomainController::class);
     Route::post('nameserverDomain', [NameserverController::class, 'store2'])->name('nameserver.store2');
     Route::post('addUser', [UserController::class, 'store2'])->name('user.store2');
     Route::resource('/nameserver', NameserverController::class);

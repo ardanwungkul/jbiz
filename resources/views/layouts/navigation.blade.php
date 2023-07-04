@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="z-20">
+<nav x-data="{ open: false }" class="z-20 bg-white dark:bg-transparent fixed w-full">
     <!-- Primary Navigation Menu -->
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -6,9 +6,13 @@
 
             <div class="flex justify-between w-full">
                 <!-- Logo -->
-                <div class="items-center w-32 flex">
+                <div class="items-center w-48 overflow-auto">
                     <a href="{{ route('welcome') }}">
-                        <x-application-logo class=" align-middle text-gray-800 dark:text-gray-200 " />
+                        <div class="w-full h-full flex justify-center items-center">
+                            <div class="logo">
+                            </div>
+                        </div>
+                        {{-- <x-application-logo class=" align-middle " /> --}}
                     </a>
                 </div>
 
@@ -34,45 +38,6 @@
                             {{ __('Contact') }}
                         </x-nav-link>
                     </div>
-                    {{-- @if (Auth::user() && Auth::user()->isAdmin == true)
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-dropdown>
-                                <x-slot name="trigger">
-                                    <button
-                                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400  hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                                        <div>Database</div>
-                                        <div class="ml-1">
-                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
-                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                    </button>
-                                </x-slot>
-
-                                <x-slot name="content">
-                                    <x-dropdown-link :href="route('domain.index')">
-                                        {{ __('Domain') }}
-                                    </x-dropdown-link>
-                                    <x-dropdown-link :href="route('pelanggan.index')">
-                                        {{ __('Pelanggan') }}
-                                    </x-dropdown-link>
-                                    <x-dropdown-link :href="route('nameserver.index')">
-                                        {{ __('Nameserver') }}
-                                    </x-dropdown-link>
-                                    <x-dropdown-link :href="route('user.index')">
-                                        {{ __('User') }}
-                                    </x-dropdown-link>
-                                    <x-dropdown-link :href="route('portofolio.index')">
-                                        {{ __('Portofolio Images') }}
-                                    </x-dropdown-link>
-                                </x-slot>
-                            </x-dropdown>
-                        </div>
-                    @else
-                    @endif --}}
                 </div>
 
 
@@ -96,7 +61,7 @@
 
                     <!-- Dropdown menu -->
                     <div id="dropdown"
-                        class="z-10 hidden rounded-lg divide-gray-100  text-left text-sm leading-5 text-gray-700 dark:text-gray-300 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 bg-gray-800 ">
+                        class="z-10 hidden rounded-lg divide-gray-100  text-left text-sm leading-5 text-gray-700 dark:text-gray-300 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800 dark:bg-gray-800 bg-white border border-blue-900 dark:border-white ">
                         <ul class=" text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                             <li>
                                 <a href="{{ route('profile.edit') }}"
@@ -170,7 +135,7 @@
 
 
             <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider"
-                class="text-white font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex sm:hidden items-center"
+                class="dark:text-white text-blue-900 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex sm:hidden items-center"
                 type="button">
                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -183,19 +148,19 @@
             <!-- Dropdown menu -->
 
             <div id="dropdownDivider"
-                class="z-10 hidden bg-white divide-y divide-gray-100 shadow w-full dark:bg-gray-700 dark:divide-gray-600">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDividerButton">
+                class="z-10 hidden bg-blue-900 divide-y divide-gray-100 shadow w-full dark:bg-gray-700 dark:divide-gray-600">
+                <ul class="py-2 text-sm text-white dark:text-gray-200" aria-labelledby="dropdownDividerButton">
                     @if (Auth::user())
                         <li>
                             <a href="{{ route('profile.edit') }}"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile
+                                class="block px-4 py-2 hover:bg-blue-800 dark:hover:bg-gray-600 dark:hover:text-white">Profile
                             </a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a onclick="event.preventDefault();
                             this.closest('form').submit();"
                                     href="{{ route('logout') }}"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                                    class="block px-4 py-2 hover:bg-blue-800 dark:hover:bg-gray-600 dark:hover:text-white">
                                     Logout</a>
                             </form>
                         </li>

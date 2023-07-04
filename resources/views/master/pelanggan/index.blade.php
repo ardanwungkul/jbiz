@@ -2,11 +2,11 @@
     <div class="pt-3 mx-4 ">
 
         <a href="{{ route('pelanggan.create') }}"
-            class="w-full bg-gray-600 text-gray-300 p-3 rounded shadow-sm focus:outline-none hover:bg-gray-500 text-sm"
+            class=" w-full dark:bg-gray-600 bg-blue-900 text-white dark:text-gray-300 p-3 rounded text-xs sm:text-sm shadow-sm focus:outline-none hover:bg-orange-500 dark:hover:bg-gray-500"
             id="createNewProduct">Tambah Pelanggan</a>
         <div class=" relative overflow-x-auto mt-4 rounded">
             <table class="data-table text-center stripe hover responsive text-sm">
-                <thead class="bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <thead class="bg-blue-900 text-white dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th>No</th>
                         <th>Nama Pelanggan</th>

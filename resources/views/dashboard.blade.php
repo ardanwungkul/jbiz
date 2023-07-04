@@ -1,17 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-white dark:text-gray-200  leading-tight">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
 
     <div class=" mt-5">
-        <div class="flex justify-center gap-10">
-            <a href="{{ route('domain.index') }}" class="group hover:scale-110 transition ease-out duration-1000">
-                <div class="w-60 rounded-2xl dashItem flex items-center py-5 px-4 border border-gray-400">
+        <div class="grid grid-cols-3 justify-center gap-3 md:gap-0 place-items-center">
+            <a href="{{ route('domain.index') }}"
+                class="group hover:scale-110 transition ease-out duration-1000 md:col-span-1 col-span-3 w-60 flex">
+                <div
+                    class="w-60 rounded-2xl dashItem dark:bg-gray-600 bg-blue-900 flex items-center py-5 px-4 border border-gray-400">
                     <div>
                         <div
-                            class="w-12 h-12 group-hover:animate-bounce duration-1000 motion-reduce:animate-bounce bg-gray-800 border border-gray-400 rounded-full flex justify-center items-center">
+                            class="w-12 h-12 group-hover:animate-bounce duration-1000 motion-reduce:animate-bounce bg-[#ff8600] dark:bg-gray-800 border border-gray-400 rounded-full flex justify-center items-center">
                             <i class="fa-solid text-white fa-globe"></i>
                         </div>
                     </div>
@@ -27,11 +29,13 @@
                     </div>
                 </div>
             </a>
-            <a href="{{ route('pelanggan.index') }}" class="group hover:scale-110 transition ease-out duration-1000">
-                <div class="w-60 rounded-2xl dashItem flex items-center py-5 px-4 border border-gray-400">
+            <a href="{{ route('pelanggan.index') }}"
+                class="group hover:scale-110 transition ease-out duration-1000 md:col-span-1 col-span-3 w-60 flex">
+                <div
+                    class="w-60 rounded-2xl dashItem dark:bg-gray-600 bg-blue-900 flex items-center py-5 px-4 border border-gray-400">
                     <div>
                         <div
-                            class="w-12 h-12 group-hover:animate-bounce duration-1000 motion-reduce:animate-bounce bg-gray-800 border border-gray-400 rounded-full flex justify-center items-center">
+                            class="w-12 h-12 group-hover:animate-bounce duration-1000 motion-reduce:animate-bounce bg-[#ff8600] dark:bg-gray-800 border border-gray-400 rounded-full flex justify-center items-center">
                             <i class="fa-solid text-white fa-person fa-xl"></i>
                         </div>
                     </div>
@@ -47,11 +51,13 @@
                     </div>
                 </div>
             </a>
-            <a href="{{ route('user.index') }}" class="group hover:scale-110 transition ease-out duration-1000">
-                <div class="w-60 rounded-2xl dashItem flex items-center py-5 px-4 border border-gray-400">
+            <a href="{{ route('user.index') }}"
+                class="group hover:scale-110 transition ease-out duration-1000 md:col-span-1 col-span-3 w-60 flex">
+                <div
+                    class="w-60 rounded-2xl dashItem dark:bg-gray-600 bg-blue-900 flex items-center py-5 px-4 border border-gray-400">
                     <div>
                         <div
-                            class="w-12 h-12 group-hover:animate-bounce duration-1000 motion-reduce:animate-bounce bg-gray-800 border border-gray-400 rounded-full flex justify-center items-center">
+                            class="w-12 h-12 group-hover:animate-bounce duration-1000 motion-reduce:animate-bounce bg-[#ff8600] dark:bg-gray-800 border border-gray-400 rounded-full flex justify-center items-center">
                             <i class="fa-solid text-white fa-user"></i>
                         </div>
                     </div>

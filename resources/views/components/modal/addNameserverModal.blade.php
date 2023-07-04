@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <button type="submit"
-                        class="sm:col-end-6 sm:col-span-2 bg-white p-3 rounded shadow-sm focus:outline-none hover:bg-indigo-700inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                        class="sm:col-end-6 sm:col-span-2 dark:bg-white bg-blue-900 text-white dark:text-black p-3 rounded shadow-sm focus:outline-none hover:bg-indigo-700 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                         Tambah Nameserver
                     </button>
                 </form>

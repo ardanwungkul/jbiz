@@ -64,7 +64,7 @@ class MemberController extends Controller
         $pelanggan->image = 'default_image.jpg';
         $pelanggan->save();
 
-        return back();
+        return redirect()->route('member.index');
     }
     public function show(Domain $domain, Pelanggan $pelanggan)
     {

@@ -4,7 +4,7 @@
         <div class="w-full bg-gray-100 dark:bg-gray-900 h-screen">
             <div class=" h-full flex items-center justify-center">
                 <div
-                    class=" px-6 py-7  self-center bg-gradient-to-b from-gray-800  shadow-md  rounded-lg flex-auto max-w-md">
+                    class=" px-6 py-7  self-center bg-gradient-to-b dark:from-gray-800 from-white to-white dark:to-transparent shadow-md  rounded-lg flex-auto max-w-md">
                     <form method="POST" action="{{ route('user.store') }}">
                         @csrf
 

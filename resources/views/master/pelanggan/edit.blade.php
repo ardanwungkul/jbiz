@@ -78,7 +78,7 @@
                             </select>
                             <div>
                                 <button type="button"
-                                    class="px-3 h-full bg-gray-700 rounded-lg border border-gray-600 text-gray-300"
+                                    class="px-3 h-full bg-blue-900 dark:bg-gray-700 rounded-lg border border-gray-600 text-gray-300"
                                     data-modal-target="userModal" data-modal-toggle="userModal">+</button>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <button type="submit"
-                    class="  bg-gray-600 text-white p-3 rounded shadow-sm focus:outline-none hover:bg-gray-500 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    class="  dark:bg-gray-600 bg-blue-900 text-white p-3 rounded shadow-sm focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-500 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                     Simpan
                 </button>
             </form>

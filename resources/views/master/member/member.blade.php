@@ -3,14 +3,15 @@
     @if (count($pelanggans) > 0)
     @else
         <div id="informational-banner" tabindex="1"
-            class="flex justify-between w-full md:p-4 p-2 border-b border-gray-200 md:flex-row bg-gray-50 dark:bg-gray-600 dark:border-gray-600">
+            class="flex justify-between w-full md:p-4 p-2 border-b border-gray-200 md:flex-row bg-gray-300 dark:bg-gray-600 dark:border-gray-600">
             <div class=" md:mr-4 self-center">
-                <h2 class=" text-sm md:text-base font-semibold text-gray-300">Anda Belum Melakukan Registrasi Data !!
+                <h2 class=" text-sm md:text-base font-semibold text-gray-600 dark:text-gray-300">Anda Belum Melakukan
+                    Registrasi Data !!
                 </h2>
             </div>
             <div class="flex items-center flex-shrink-0">
                 <a href="{{ route('member.create') }}"
-                    class="inline-flex px-3 py-2 mr-2 text-xs font-medium rounded-lg bg-gray-300  ">Registrasi
+                    class="inline-flex px-3 py-2 mr-2 text-xs font-medium rounded-lg bg-blue-900 text-white dark:text-black dark:bg-gray-300  ">Registrasi
                     <svg class="h-4 w-4 ml-1.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
                         <path clip-rule="evenodd" fill-rule="evenodd"
@@ -34,15 +35,15 @@
         <div class=" mx-5 lg:mx-10 lg mt-16 mb-4 rounded-lg lg:flex-initial lg:w-40">
             <ul class=" -mb-px text-sm font-medium text-center justify-center lg:block flex w-full gap-3 border-b lg:border-none"
                 id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-                <li class="my-2 bg-gray-700 rounded-lg w-32 lg:w-full" role="presentation">
+                <li class="my-2 dark:bg-gray-700 bg-blue-900 rounded-lg w-32 lg:w-full" role="presentation">
                     <button
-                        class="inline-block dark:text-white dark:border-none dark:hover:text-gray-200 dark:focus:bg-gray-200 dark:focus:rounded-lg dark:focus:text-black w-full px-4 py-2 border-b-2"
+                        class="inline-block dark:text-white text-white dark:border-none dark:hover:text-gray-200 dark:focus:bg-gray-200 dark:focus:rounded-lg dark:focus:text-black w-full px-4 py-2 border-b-2"
                         id="profile-tab" data-tabs-target="#profile" type="button" role="tab"
                         aria-controls="profile" aria-selected="false">Profile</button>
                 </li>
-                <li class="my-2 bg-gray-700 rounded-lg w-32 lg:w-full" role="presentation">
+                <li class="my-2 dark:bg-gray-700 bg-blue-900 rounded-lg w-32 lg:w-full" role="presentation">
                     <button
-                        class="inline-block dark:text-white dark:border-none dark:hover:text-gray-200 dark:focus:bg-gray-200 dark:focus:rounded-lg dark:focus:text-black w-full px-4 py-2 border-b-2"
+                        class="inline-block dark:text-white text-white dark:border-none dark:hover:text-gray-200 dark:focus:bg-gray-200 dark:focus:rounded-lg dark:focus:text-black w-full px-4 py-2 border-b-2"
                         id="settings-tab" data-tabs-target="#settings" type="button" role="tab"
                         aria-controls="settings" aria-selected="false">Settings</button>
                 </li>
@@ -51,8 +52,8 @@
         <div id="myTabContent" class="px-3 lg:px-10 flex-auto">
             <div class=" p-5 rounded-lg " id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="mb-5">
-                    <h2 class="text-white text-2xl lg:text-4xl font-extralight">Hallo <span
-                            class="text-white text-2xl lg:text-4xl font-extrabold">
+                    <h2 class="dark:text-white text-blue-900 text-2xl lg:text-4xl font-extralight">Hallo <span
+                            class="dark:text-white text-blue-900  text-2xl lg:text-4xl font-extrabold">
                             {{ Auth::user()->name }} </span>
                     </h2>
                 </div>
@@ -75,20 +76,20 @@
 
                             <div class="max-w-[200px] pt-3">
                                 <div class="flex gap-3 mb-3">
-                                    <i class="fa-solid fa-user self-center" style="color: #ffffff;"></i>
-                                    <p class="text-white self-center">
+                                    <i class="fa-solid fa-user self-center dark:text-white text-black"></i>
+                                    <p class="dark:text-white text-black self-center">
                                         {{ count($pelanggans) > 0 ? $pelanggans[0]->nama_pelanggan : '-' }}
                                     </p>
                                 </div>
                                 <div class="flex gap-3 mb-3">
-                                    <i class="fa-solid fa-phone self-center" style="color: #ffffff;"></i>
-                                    <p class="text-white self-center">
+                                    <i class="fa-solid fa-phone self-center dark:text-white text-black"></i>
+                                    <p class="dark:text-white text-black self-center">
                                         {{ count($pelanggans) > 0 ? $pelanggans[0]->no_hp : '-' }}
                                     </p>
                                 </div>
                                 <div class="flex gap-3">
-                                    <i class="fa-solid fa-location-dot mt-1" style="color: #ffffff;"></i>
-                                    <p class="text-white self-center">
+                                    <i class="fa-solid fa-location-dot mt-1 dark:text-white text-black"></i>
+                                    <p class="dark:text-white text-black self-center">
                                         {{ count($pelanggans) > 0 ? $pelanggans[0]->alamat : '-' }}
                                     </p>
                                 </div>
@@ -97,11 +98,11 @@
 
                     </div>
                     <div class="flex-auto border rounded-lg p-5 border-gray-500 mt-10 lg:mt-0">
-                        <h2 class="text-white text-xl lg:text-3xl mb-5">Daftar Domain</h2>
+                        <h2 class="dark:text-white text-black text-xl lg:text-3xl mb-5">Daftar Domain</h2>
                         <div class="rounded-lg overflow-x-auto">
                             <table class="w-full text-sm text-left text-gray-400">
                                 <thead
-                                    class="text-xs uppercase bg-gray-700 text-gray-200 text-center whitespace-nowrap">
+                                    class="text-xs uppercase bg-blue-900 dark:bg-gray-700 text-white dark:text-gray-200 text-center whitespace-nowrap">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Nama Domain
@@ -121,12 +122,12 @@
 
                                     @foreach ($domains as $item)
                                         <tr
-                                            class="hover:bg-gray-700 border-b dark:bg-gray-900 dark:border-gray-700 text-center">
+                                            class="dark:hover:bg-gray-700 hover:bg-gray-300 border-b dark:bg-gray-900 dark:border-gray-700 text-center">
                                             <th scope="row"
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                 {{ $item->nama_domain }}
                                             </th>
-                                            <td class="px-6 py-4">
+                                            <td class="px-6 py-4 text-gray-900">
                                                 {{ $item->tanggal_expired }}
                                             </td>
                                             <td>
@@ -151,7 +152,7 @@
                 </div>
             </div>
             <div class="hidden p-4 rounded-lg" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-                <h2 class="text-white text-3xl">Edit Profile</h2>
+                <h2 class="dark:text-white text-black text-3xl">Edit Profile</h2>
 
 
                 @if (count($pelanggans) > 0)
@@ -315,7 +316,7 @@
                             </div>
                         </div>
                         <button type="submit"
-                            class="  bg-white text-black p-3 rounded shadow-sm focus:outline-none hover:bg-indigo-700inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                            class="  dark:bg-white bg-blue-900 dark:text-black text-white p-3 rounded shadow-sm focus:outline-none hover:bg-indigo-700inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                             Simpan
                         </button>
                     </form>

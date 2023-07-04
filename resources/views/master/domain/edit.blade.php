@@ -15,11 +15,27 @@
                             placeholder="Masukan Nama Domain" required="">
                     </div>
                     <div class="w-full">
-                        <label for="epp_code" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">EPP
-                            Code</label>
-                        <input type="text" value="{{ $domain->epp_code }}" name="epp_code" id="epp_code"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Masukan EPP Code" required="">
+                        <div class="flex">
+                            <div class="flex-auto">
+                                <label for="epp_code"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">EPP
+                                    Code</label>
+                                <input type="text" value="{{ $domain->epp_code }}" name="epp_code" id="epp_code"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Masukan EPP Code" required="">
+                            </div>
+                            <div class="ml-3 flex-auto">
+                                <label for="epp_code"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tampilkan
+                                    EPP</label>
+                                <select name="hidden_epp"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                    <option value="{{ $domain->hidden_epp }}" disabled selected></option>
+                                    <option value="hidden">Hide</option>
+                                    <option value="sh">Show</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="w-full">
                         <label for="lokasi_domain"
@@ -128,7 +144,7 @@
                     </div>
                 </div>
                 <button type="submit"
-                    class="  bg-gray-600 text-white p-3 rounded shadow-sm focus:outline-none hover:bg-gray-500 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    class="  dark:bg-gray-600 bg-blue-900 text-white p-3 rounded shadow-sm focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-500 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                     Simpan
                 </button>
             </form>

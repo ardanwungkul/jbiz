@@ -3,11 +3,11 @@
         <div class=" relative overflow-x-auto mt-4 rounded">
             <button class="mt-10">
                 <a href="{{ route('user.create') }}"
-                    class=" w-full bg-gray-600 text-gray-300 p-3 rounded text-xs sm:text-sm shadow-sm focus:outline-none hover:bg-gray-500"
+                    class=" w-full dark:bg-gray-600 bg-blue-900 text-white dark:text-gray-300 p-3 rounded text-xs sm:text-sm shadow-sm focus:outline-none hover:bg-orange-500 dark:hover:bg-gray-500"
                     id="createNewProduct">Tambah User</a>
             </button>
             <table class="data-table text-center stripe hover responsive text-sm ">
-                <thead class="bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <thead class="bg-blue-900 text-white dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th>No</th>
                         <th>Nama User</th>
@@ -57,6 +57,15 @@
                     {
                         data: 'email',
                         name: 'email',
+                        render: function(data, type, full, meta) {
+                            if (full.email_verified_at !== null) {
+                                return '<p class="dark:text-green-400 text-green-600">' + full
+                                    .email + '</p>'
+                            } else {
+                                return '<p class="dark:text-red-400 text-red-600">' + full.email +
+                                    '</p>'
+                            }
+                        }
                     },
                     {
                         data: 'action',

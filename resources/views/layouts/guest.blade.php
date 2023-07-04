@@ -18,8 +18,9 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
-    <div class="w-full bg-gray-100 bg-moon h-screen">
-        <div class=" h-full flex items-center justify-center">
+    <div
+        class="w-full bg-gradient-to-r from-[#0a1b65] to-[#0a5b66] dark:bg-gray-900 dark:from-gray-900 dark:to-gray-900 h-screen">
+        <div class=" h-full flex items-center justify-center bg-moon">
             <div class="lg:grid lg:grid-cols-2 flex-auto">
                 <div class="lg:col-span-1 self-center pt-6 bg-transparent mb-5">
                     <a href="/" class="flex justify-center">
@@ -27,7 +28,8 @@
                     </a>
                 </div>
                 <div class="lg:col-span-1 self-center lg:px-32 px-10">
-                    <div class="login px-6 py-7  self-center shadow-md border border-opacity-10 rounded-lg">
+                    <div
+                        class="dark:bg-[#1f2937eb] bg-[#ffffffb3] backdrop-blur-sm px-6 py-7  self-center shadow-md border dark:border-white border-[#ff8600] rounded-lg">
                         {{ $slot }}
                     </div>
                 </div>

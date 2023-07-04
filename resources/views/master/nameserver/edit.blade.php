@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <button type="submit"
-                    class=" bg-gray-600 text-white p-3 rounded shadow-sm focus:outline-none hover:bg-gray-500 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    class=" dark:bg-gray-600 bg-blue-900 hover:bg-blue-800 text-white p-3 rounded shadow-sm focus:outline-none dark:hover:bg-gray-500 inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-primary-700 focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                     Simpan
                 </button>
             </form>
