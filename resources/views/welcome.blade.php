@@ -1,7 +1,7 @@
 <x-app-layout>
     {{-- Typewriter --}}
-    <div class="">
-        <section class="home" id="home">
+    <div class="bg-blue-900 dark:bg-gray-900">
+        <section class="home bg-moon" id="home">
             <div class="max-width">
                 <div class="home-content">
                     <div class="text-1">Hello , Welcome to</div>
@@ -19,15 +19,18 @@
                             @endauth
                     @endif
                 </div>
-        </section>
+            </div>
     </div>
 
+    </section>
+    </div>
 
 
     {{-- Page What We Do --}}
     <div class="container-fluid sm:h-screen bg-white  py-5 sm:mx-auto sm:flex sm:items-center">
         <div class="py-5">
-            <h5 class="text-center text-2xl sm:text-4xl font-bold tracking-tighter mb-5 text-gray-800">what we do ?</h5>
+            <h5 class="text-center text-2xl sm:text-4xl font-bold tracking-tighter mb-5 text-gray-800">what we
+                do ?</h5>
             <div class=" px-5 sm:px-20 grid grid-cols-3 gap-12 justify-center">
 
                 <div
@@ -43,7 +46,8 @@
                                 class="mb-2 text-sm md:text-xl lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 Jasa Pembuatan Website</h5>
                         </a>
-                        <p class="mb-3 font-normal text-sm text-gray-700 dark:text-gray-400 text-center">Lorem ipsum
+                        <p class="mb-3 font-normal text-sm text-gray-700 dark:text-gray-400 text-center">Lorem
+                            ipsum
                             dolor sit amet consectetur adipisicing elit. Alias, ducimus?</p>
 
                     </div>
@@ -61,7 +65,8 @@
                                 class="mb-2 text-sm md:text-xl lg:text-2xl font-bold tracking-tight  text-gray-900 dark:text-white">
                                 Search Engine Optimization</h5>
                         </a>
-                        <p class="mb-3 font-normal  text-sm text-gray-700 dark:text-gray-400 text-center">Lorem ipsum
+                        <p class="mb-3 font-normal  text-sm text-gray-700 dark:text-gray-400 text-center">Lorem
+                            ipsum
                             dolor sit amet consectetur adipisicing elit. Alias, ducimus?</p>
 
                     </div>
@@ -79,7 +84,8 @@
                                 class="mb-2 text-sm md:text-xl lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 Maintenance Website</h5>
                         </a>
-                        <p class="mb-3 font-normal  text-sm text-gray-700 dark:text-gray-400 text-center">Lorem ipsum
+                        <p class="mb-3 font-normal  text-sm text-gray-700 dark:text-gray-400 text-center">Lorem
+                            ipsum
                             dolor sit amet consectetur adipisicing elit. Alias, ducimus?</p>
 
                     </div>
@@ -98,22 +104,28 @@
             </div>
             <div class="sm:h-screen px-10 pb-10 md:pb-0 sm:mx-auto sm:flex sm:items-center md:px-20">
                 <ul class="list-disc text-white">
-                    <h5 class="sm:text-3xl text-lg tracking-tighter mb-7 font-extrabold">Pentingnya menggunakan Website
+                    <h5 class="sm:text-3xl text-lg tracking-tighter mb-7 font-extrabold">Pentingnya menggunakan
+                        Website
                         !!</h5>
-                    <li class="sm:text-base text-sm font-bold">Meningkatkan Kepercayaan Pelanggan (Branding)</li>
-                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing
+                    <li class="sm:text-base text-sm font-bold">Meningkatkan Kepercayaan Pelanggan (Branding)
+                    </li>
+                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur
+                        adipisicing
                         elit. Consequatur,
                         tenetur?</p>
                     <li class="sm:text-base text-sm font-bold">Sebagai Media Promosi</li>
-                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing
+                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur
+                        adipisicing
                         elit. Consequatur,
                         tenetur?</p>
                     <li class="sm:text-base text-sm font-bold">Sarana Katalog Produk</li>
-                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing
+                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur
+                        adipisicing
                         elit. Consequatur,
                         tenetur?</p>
                     <li class="sm:text-base text-sm font-bold">Meningkatkan Penjualan</li>
-                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing
+                    <p class="sm:text-base text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur
+                        adipisicing
                         elit. Consequatur,
                         tenetur?</p>
                 </ul>
@@ -125,7 +137,8 @@
     <div class="container-fluid bg-white p-5 ">
         <h2 class="text-center text-4xl font-extrabold tracking-tighter mb-2">Mengapa harus Jasawebsite.biz</h2>
         <p class="text-center text-xl font-medium text-gray-600">Lebih Dari 1000 Klien Telah Memilih <span
-                class="text-red-500 font-extrabold"> Jasawebsite.biz </span> Untuk Pembuatan Website Sejak Tahun 2006
+                class="text-red-500 font-extrabold"> Jasawebsite.biz </span> Untuk Pembuatan Website Sejak Tahun
+            2006
         </p>
 
         <div class="container lg:px-56 my-8">
@@ -304,12 +317,5 @@
             .start();
     </script>
 
-    {{-- Floating Button --}}
-    <a href="http://bit.ly/konsultasiwebjbiz" target="_blank">
-        <button class="btn-floating whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>Click For Chat</span>
-        </button>
-    </a>
 
 </x-app-layout>

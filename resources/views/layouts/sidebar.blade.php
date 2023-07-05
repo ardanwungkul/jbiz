@@ -2,7 +2,7 @@
     <div class="h-screen items-center self-center align-middle fixed z-40 flex">
         <button type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
             aria-controls="drawer-navigation"
-            class="dark:bg-gray-950 bg-blue-900 p-3 text-white rounded-r-full
+            class="dark:bg-gray-950 bg-orange-500 p-3 text-white rounded-r-full
         "><i
                 class="fa-solid fa-arrow-right text-white"></i>
         </button>
@@ -86,7 +86,6 @@
 
                     </a>
                 </li>
-
             </ul>
         </div>
     </div>
