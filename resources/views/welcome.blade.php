@@ -1,6 +1,6 @@
 <x-app-layout>
     {{-- Typewriter --}}
-    <div class="bg-blue-900 dark:bg-gray-900">
+    <div class="bg-blue-900 dark:bg-gray-900 duration-500">
         <section class="home bg-moon" id="home">
             <div class="max-width">
                 <div class="home-content">

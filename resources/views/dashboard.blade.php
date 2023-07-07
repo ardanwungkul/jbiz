@@ -10,7 +10,7 @@
             <a href="{{ route('domain.index') }}"
                 class="group hover:scale-110 transition ease-out duration-1000 md:col-span-1 col-span-3 w-60 flex">
                 <div
-                    class="w-60 rounded-2xl dashItem dark:bg-gray-600 bg-blue-900 flex items-center py-5 px-4 border border-gray-400">
+                    class="w-60 rounded-2xl dashItem dark:bg-gray-600 bg-blue-900 flex items-center py-5 px-4 border border-gray-400 duration-500">
                     <div>
                         <div
                             class="w-12 h-12 group-hover:animate-bounce duration-1000 motion-reduce:animate-bounce bg-[#ff8600] dark:bg-gray-800 border border-gray-400 rounded-full flex justify-center items-center">
@@ -32,7 +32,7 @@
             <a href="{{ route('pelanggan.index') }}"
                 class="group hover:scale-110 transition ease-out duration-1000 md:col-span-1 col-span-3 w-60 flex">
                 <div
-                    class="w-60 rounded-2xl dashItem dark:bg-gray-600 bg-blue-900 flex items-center py-5 px-4 border border-gray-400">
+                    class="w-60 rounded-2xl dashItem dark:bg-gray-600 bg-blue-900 flex items-center py-5 px-4 border border-gray-400 duration-500">
                     <div>
                         <div
                             class="w-12 h-12 group-hover:animate-bounce duration-1000 motion-reduce:animate-bounce bg-[#ff8600] dark:bg-gray-800 border border-gray-400 rounded-full flex justify-center items-center">
@@ -54,7 +54,7 @@
             <a href="{{ route('user.index') }}"
                 class="group hover:scale-110 transition ease-out duration-1000 md:col-span-1 col-span-3 w-60 flex">
                 <div
-                    class="w-60 rounded-2xl dashItem dark:bg-gray-600 bg-blue-900 flex items-center py-5 px-4 border border-gray-400">
+                    class="w-60 rounded-2xl dashItem dark:bg-gray-600 bg-blue-900 flex items-center py-5 px-4 border border-gray-400 duration-500">
                     <div>
                         <div
                             class="w-12 h-12 group-hover:animate-bounce duration-1000 motion-reduce:animate-bounce bg-[#ff8600] dark:bg-gray-800 border border-gray-400 rounded-full flex justify-center items-center">

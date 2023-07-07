@@ -214,14 +214,14 @@
                                     Lengkap</label>
                                 <input type="text" name="nama_pelanggan" id="nama_pelanggan"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    value="{{ $pelanggans[0]->nama_pelanggan }}">
+                                    value="{{ $pelanggans[0]->nama_pelanggan }}" required>
                             </div>
                             <div class="col-span-2">
                                 <label for="alamat"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat</label>
                                 <input type="text" name="alamat" id="nama_pelanggan"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    value="{{ count($pelanggans) > 0 ? $pelanggans[0]->alamat : '-' }}">
+                                    value="{{ count($pelanggans) > 0 ? $pelanggans[0]->alamat : '-' }}" required>
                             </div>
                             <div class="col-span-2">
                                 <label for="no_hp"
@@ -229,7 +229,7 @@
                                     Hp</label>
                                 <input type="text" name="no_hp" id="no_hp"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                    value="{{ count($pelanggans) > 0 ? $pelanggans[0]->no_hp : '-' }}">
+                                    value="{{ count($pelanggans) > 0 ? $pelanggans[0]->no_hp : '-' }}" required>
                             </div>
                             <div class="col-span-2 hidden">
                                 <label for="user_id"

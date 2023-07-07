@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="z-20 bg-white dark:bg-transparent fixed w-full">
+<nav x-data="{ open: false }" class="z-20 dark:bg-transparent fixed w-full ">
     <!-- Primary Navigation Menu -->
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

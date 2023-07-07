@@ -53,7 +53,7 @@ class DomainController extends Controller
         $request->validate(
             [
                 'nama_domain' => 'required|unique:domains,nama_domain',
-                'epp_code' => 'required|unique:domains,epp_code',
+                // 'epp_code' => 'required|unique:domains,epp_code',
                 'keterangan_domain' => 'required',
                 'lokasi_domain' => 'required',
                 'tanggal_mulai' => 'required',
@@ -70,7 +70,7 @@ class DomainController extends Controller
             ],
             [
                 'pelanggan_id.required' => 'Anda belum Menambahkan Pelanggan',
-                'epp_code.unique' => 'Code telah digunakan.',
+                // 'epp_code.unique' => 'Code telah digunakan.',
                 'nama_domain.unique' => 'Domain telah terdaftar dalam database.',
             ]
         );
@@ -79,7 +79,8 @@ class DomainController extends Controller
 
         $domain = new Domain();
         $domain->nama_domain = $request->nama_domain;
-        $domain->epp_code = $request->epp_code;
+        $domain->epp_code = !empty($request->epp_code) ? $request->epp_code : '-';
+        // $domain->epp_code = $request->epp_code;
         $domain->keterangan_domain = $request->keterangan_domain;
         $domain->lokasi_domain = $request->lokasi_domain;
         $domain->tanggal_mulai = $request->tanggal_mulai;

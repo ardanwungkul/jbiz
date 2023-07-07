@@ -9,6 +9,7 @@ use App\Models\Nameserver;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
@@ -40,7 +41,19 @@ class MemberController extends Controller
             [
                 'nama_pelanggan' => 'required',
                 'alamat' => 'required',
-                'no_hp' => 'required|unique:pelanggans,no_hp',
+                'no_hp' => [
+                    'nullable',
+                    function ($attribute, $value, $fail) {
+                        $charactersToRemove = ['0', '62'];
+                        $cleanedNoHp = ltrim($value, implode('', $charactersToRemove));
+                        $combinedNoHp = '62' . $cleanedNoHp;
+
+                        $exists = DB::table('pelanggans')->where('no_hp', $combinedNoHp)->exists();
+                        if ($exists) {
+                            $fail('Nomor Hp telah digunakan.');
+                        }
+                    },
+                ],
                 'keterangan_pelanggan' => 'required',
                 'link_history' => 'required',
                 'user_id' => 'required',

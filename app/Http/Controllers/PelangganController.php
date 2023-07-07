@@ -6,6 +6,8 @@ use App\Models\Domain;
 use App\Models\Pelanggan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
 
 use function PHPUnit\Framework\fileExists;
@@ -57,7 +59,19 @@ class PelangganController extends Controller
             [
                 'nama_pelanggan' => 'required',
                 'alamat' => 'required',
-                'no_hp' => 'required|unique:pelanggans,no_hp',
+                'no_hp' => [
+                    'nullable',
+                    function ($attribute, $value, $fail) {
+                        $charactersToRemove = ['0', '62'];
+                        $cleanedNoHp = ltrim($value, implode('', $charactersToRemove));
+                        $combinedNoHp = '62' . $cleanedNoHp;
+
+                        $exists = DB::table('pelanggans')->where('no_hp', $combinedNoHp)->exists();
+                        if ($exists) {
+                            $fail('Nomor Hp telah digunakan.');
+                        }
+                    },
+                ],
                 'keterangan_pelanggan' => 'required',
                 'link_history' => 'required',
                 'user_id' => 'required',
@@ -100,7 +114,19 @@ class PelangganController extends Controller
             [
                 'nama_pelanggan' => 'required',
                 'alamat' => 'required',
-                'no_hp' => 'required|unique:pelanggans,no_hp',
+                'no_hp' => [
+                    'nullable',
+                    function ($attribute, $value, $fail) {
+                        $charactersToRemove = ['0', '62'];
+                        $cleanedNoHp = ltrim($value, implode('', $charactersToRemove));
+                        $combinedNoHp = '62' . $cleanedNoHp;
+
+                        $exists = DB::table('pelanggans')->where('no_hp', $combinedNoHp)->exists();
+                        if ($exists) {
+                            $fail('Nomor Hp telah digunakan.');
+                        }
+                    },
+                ],
                 'keterangan_pelanggan' => 'required',
                 'link_history' => 'required',
                 'user_id' => 'required',
@@ -108,14 +134,14 @@ class PelangganController extends Controller
             ],
             [
                 'no_hp.unique' => 'Nomor Hp telah digunakan .',
+                'no_hp.required' => 'Nomor Hp harus Diisi.',
             ]
-
         );
 
+        // dd($request);
         $charactersToRemove = ['0', '62'];
         $string = ltrim($request->no_hp, implode('', $charactersToRemove));
 
-        // dd($request);
 
         $pelanggan = new Pelanggan();
         $pelanggan->nama_pelanggan = $request->nama_pelanggan;
@@ -153,18 +179,32 @@ class PelangganController extends Controller
 
     public function update(Request $request, Pelanggan $pelanggan)
     {
+        echo '$request->id';
 
+        $request->validate([
+            'nama_pelanggan' => 'required',
+            'alamat' => 'required',
+            'no_hp' => [
+                'nullable',
+                function ($attribute, $value, $fail) use ($request) {
+                    $charactersToRemove = ['0', '62'];
+                    $cleanedNoHp = ltrim($value, implode('', $charactersToRemove));
+                    $combinedNoHp = '62' . $cleanedNoHp;
 
-        $request->validate(
-            [
-                'nama_pelanggan' => 'required',
-                'alamat' => 'required',
-                'no_hp' => 'required',
-                'keterangan_pelanggan' => 'required',
-                'link_history' => 'required',
-                'user_id' => 'required'
-            ]
-        );
+                    $existingRecord = DB::table('pelanggans')
+                        ->where('no_hp', $combinedNoHp)
+                        ->where('id', '!=',  $request->pelanggan->id)
+                        ->exists();
+
+                    if ($existingRecord) {
+                        $fail('Nomor Hp telah digunakan.');
+                    }
+                },
+            ],
+            'keterangan_pelanggan' => 'required',
+            'link_history' => 'required',
+            'user_id' => 'required'
+        ]);
         $file_path = public_path('storage/images/fotoProfil/' . $pelanggan->image);
         if ($request->hasFile('image')) {
             if ($pelanggan->image !== 'default_image.jpg') {

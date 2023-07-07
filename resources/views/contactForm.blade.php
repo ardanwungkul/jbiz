@@ -1,6 +1,5 @@
-<x-app-layout>
-    <div
-        class="container-fluid grid lg:grid-rows-none lg:grid-cols-5 grid-rows-2 gap-10 lg:gap-0 p-10 dark:bg-gray-900 ">
+<x-app-layout class=" bg-white dark:bg-gray-900 duration-500">
+    <div class="container-fluid grid lg:grid-rows-none lg:grid-cols-5 grid-rows-2 gap-10 lg:gap-0 p-10 ">
         <div class="lg:col-span-2 row-end-3 lg:row-span-full text-white ml-5">
             <div class="flex lg:items-center h-full">
                 <div class="dark:text-white text-black">

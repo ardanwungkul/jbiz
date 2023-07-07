@@ -30,11 +30,11 @@
     @include('layouts.sidebar')
 
     @include('layouts.navigation')
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 pt-16 sm:pt-[64.67px]">
+    <div class="min-h-screen bg-white dark:bg-gray-900 pt-16 sm:pt-[64.67px]">
 
         <!-- Page Heading -->
         @if (isset($header))
-            <header class=" dark:bg-gray-800 bg-blue-900 shadow rounded-b-3xl">
+            <header class=" dark:bg-gray-800 bg-blue-900 shadow rounded-b-3xl duration-500">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
